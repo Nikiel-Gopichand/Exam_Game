@@ -5,6 +5,11 @@ using UnityEngine;
 public class Playercontroller : MonoBehaviour
 {
     public Animator anim;
+    public int speed = 3;
+    public GameObject camPivot;
+    public Vector2 turn;
+    public float sensitivity = 2f;
+    Vector3 runV;
     // Start is called before the first frame update
     void Start()
     {
@@ -15,6 +20,12 @@ public class Playercontroller : MonoBehaviour
     void Update()
     {
         anim.SetFloat("Running",Input.GetAxis("Vertical"));
-        this.GetComponent<Rigidbody>().velocity = new Vector3(10*Input.GetAxis("Horizontal"), 0,10* Input.GetAxis("Vertical"));
+
+        runV = this.transform.forward * Input.GetAxis("Vertical") + this.transform.right * Input.GetAxis("Horizontal");
+        this.GetComponent<Rigidbody>().velocity = runV*speed;
+       
+        turn.x += Input.GetAxis("Mouse X") * sensitivity;
+
+        transform.localRotation = Quaternion.Euler(0,turn.x, 0);
     }
 }
