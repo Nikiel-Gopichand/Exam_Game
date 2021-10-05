@@ -15,6 +15,6 @@ public class Playercontroller : MonoBehaviour
     void Update()
     {
         anim.SetFloat("Running",Input.GetAxis("Vertical"));
-     
+        this.GetComponent<Rigidbody>().velocity = new Vector3(10*Input.GetAxis("Horizontal"), 0,10* Input.GetAxis("Vertical"));
     }
 }
