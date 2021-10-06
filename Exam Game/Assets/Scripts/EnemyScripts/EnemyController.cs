@@ -7,8 +7,10 @@ public class EnemyController : MonoBehaviour
 {
     // Start is called before the first frame update
     public float sightRadius=10f;
+    public float attackRange = 5f;
     Transform target;
     NavMeshAgent agent;
+    public Animator enemyAnim;
 
     void Start()
     {
@@ -20,12 +22,31 @@ public class EnemyController : MonoBehaviour
     void Update()
     {
         float distance = Vector3.Distance(target.position, transform.position);
-        if (distance<= sightRadius) 
+        if (distance <= sightRadius)
         {
-            agent.SetDestination(target.position);
-            if (distance<=agent.stoppingDistance) {
+            enemyAnim.SetBool("SightRange",true);
+
+          
                 FaceTarget();
-            }
+                if (distance <= attackRange)
+                {
+                    enemyAnim.SetInteger("AttackAnim", Random.Range(1, 2));
+                    enemyAnim.SetBool("Attacking", true);
+
+                }
+                else if(distance>attackRange)
+            {
+                agent.SetDestination(target.position);
+
+                enemyAnim.SetBool("Attacking", false);
+                }
+          //  agent.SetDestination(target.position); 
+            
+
+
+        }
+        else {
+            enemyAnim.SetBool("SightRange", false);
         }
     }
     void FaceTarget() {
