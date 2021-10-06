@@ -27,5 +27,6 @@ public class Playercontroller : MonoBehaviour
         turn.x += Input.GetAxis("Mouse X") * sensitivity;
 
         transform.localRotation = Quaternion.Euler(0,turn.x, 0);
+
     }
 }
