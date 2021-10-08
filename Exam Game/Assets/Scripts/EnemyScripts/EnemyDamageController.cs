@@ -21,7 +21,7 @@ public class EnemyDamageController : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         if (other.tag=="PlayerAttack") {
-            enemy.GetComponent<EnemyController>().Damaged(damage);//insert reference to current player damage here.This is passed to the enemy controller to change hp
+            enemy.GetComponent<EnemyController>().Damaged(41);//insert reference to current player damage here.This is passed to the enemy controller to change hp
         }
     }
 }
