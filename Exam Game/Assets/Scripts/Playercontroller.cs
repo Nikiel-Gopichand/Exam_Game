@@ -19,7 +19,7 @@ public class Playercontroller : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        anim.SetFloat("Running",Input.GetAxis("Vertical"));
+        
 
         runV = camPivot.transform.forward * Input.GetAxis("Vertical") + camPivot.transform.right * Input.GetAxis("Horizontal");
         runV.y = 0f;
@@ -31,10 +31,14 @@ public class Playercontroller : MonoBehaviour
         }
         if (GetComponent<Rigidbody>().velocity.magnitude != 0)
         {
-
+            anim.SetFloat("Running",1);
             Vector3 lDir = transform.position + runV;
             this.transform.forward = Vector3.Lerp(transform.forward, runV, 20f * Time.deltaTime);
            
+        }
+        if (GetComponent<Rigidbody>().velocity.magnitude == 0)
+        {
+            anim.SetFloat("Running", 0);
         }
     }
 }
