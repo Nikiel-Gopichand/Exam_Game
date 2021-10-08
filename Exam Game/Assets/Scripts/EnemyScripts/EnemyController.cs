@@ -7,10 +7,14 @@ public class EnemyController : MonoBehaviour
 {
     // Start is called before the first frame update
     public float sightRadius=10f;
-    public float attackRange = 5f;
+    public float attackRange = 3f;
     Transform target;
     NavMeshAgent agent;
     public Animator enemyAnim;
+    public float enemyHP=100;
+    public float burnMultiplier=1.2f;
+    public float slowMultiplier=0.7f;
+
 
     void Start()
     {
@@ -48,6 +52,9 @@ public class EnemyController : MonoBehaviour
         else {
             enemyAnim.SetBool("SightRange", false);
         }
+
+
+
     }
     void FaceTarget() {
         Vector3 direction = (target.position - transform.position).normalized;
@@ -59,4 +66,11 @@ public class EnemyController : MonoBehaviour
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, sightRadius);
     }
+    void Damaged(float damage) {
+        enemyAnim.SetBool("Injured", true);
+        enemyHP = enemyHP - damage;
+    
+    }
+
+
 }
