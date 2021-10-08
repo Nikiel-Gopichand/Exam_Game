@@ -21,12 +21,16 @@ public class Playercontroller : MonoBehaviour
     {
         anim.SetFloat("Running",Input.GetAxis("Vertical"));
 
-        runV = this.transform.forward * Input.GetAxis("Vertical") + this.transform.right * Input.GetAxis("Horizontal");
+        runV = camPivot.transform.forward * Input.GetAxis("Vertical") + camPivot.transform.right * Input.GetAxis("Horizontal");
+        runV.y = 0f;
         this.GetComponent<Rigidbody>().velocity = runV*speed;
-       
-        turn.x += Input.GetAxis("Mouse X") * sensitivity;
+        
+        if (GetComponent<Rigidbody>().velocity.magnitude != 0)
+        {
 
-        transform.localRotation = Quaternion.Euler(0,turn.x, 0);
-
+            Vector3 lDir = transform.position + runV;
+            this.transform.forward = Vector3.Lerp(transform.forward, runV, 20f * Time.deltaTime);
+           
+        }
     }
 }
