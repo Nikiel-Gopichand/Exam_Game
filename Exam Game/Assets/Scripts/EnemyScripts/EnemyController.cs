@@ -55,6 +55,7 @@ public class EnemyController : MonoBehaviour
 
         }
         else {
+            agent.SetDestination(transform.position);
             enemyAnim.SetBool("SightRange", false);
         }
 

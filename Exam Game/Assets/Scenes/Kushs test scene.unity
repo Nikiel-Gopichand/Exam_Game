@@ -316,10 +316,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 3170043439323924811, guid: 03a24d58267dbd04d8f6e5fe5e16ab1d, type: 3}
-      propertyPath: m_TagString
-      value: sword
-      objectReference: {fileID: 0}
+    - target: {fileID: 8089358211249413488, guid: 03a24d58267dbd04d8f6e5fe5e16ab1d, type: 3}
+      propertyPath: sword
+      value: 
+      objectReference: {fileID: 1123960018}
     - target: {fileID: 8089358211249413488, guid: 03a24d58267dbd04d8f6e5fe5e16ab1d, type: 3}
       propertyPath: camPivot
       value: 
@@ -371,10 +371,6 @@ PrefabInstance:
     - target: {fileID: 8089358211249413491, guid: 03a24d58267dbd04d8f6e5fe5e16ab1d, type: 3}
       propertyPath: m_Name
       value: Player (1)
-      objectReference: {fileID: 0}
-    - target: {fileID: 8089358211249413491, guid: 03a24d58267dbd04d8f6e5fe5e16ab1d, type: 3}
-      propertyPath: m_TagString
-      value: Player
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 03a24d58267dbd04d8f6e5fe5e16ab1d, type: 3}
@@ -601,6 +597,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!65 &1123960018 stripped
+BoxCollider:
+  m_CorrespondingSourceObject: {fileID: 354446837771641308, guid: 03a24d58267dbd04d8f6e5fe5e16ab1d, type: 3}
+  m_PrefabInstance: {fileID: 660797998}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1305143239
 GameObject:
   m_ObjectHideFlags: 0
@@ -1017,7 +1018,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 183acce19cb5202439d1e51fe78f137b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rightArmCollider: {fileID: 0}
+  leftArmCollider: {fileID: 0}
+  bodyCollider: {fileID: 0}
+  damageThreshold: 40
   sightRadius: 10
+  attackRange: 3
+  enemyAnim: {fileID: 0}
+  enemyHP: 100
+  burnMultiplier: 1.2
+  slowMultiplier: 0.7
 --- !u!54 &1834530086
 Rigidbody:
   m_ObjectHideFlags: 0
