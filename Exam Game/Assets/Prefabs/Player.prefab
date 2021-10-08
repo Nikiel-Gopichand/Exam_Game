@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 8089358211249413494}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: PlayerAttack
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -153,6 +153,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 5efdb7869e15d294781921ab048b67e0, type: 3}
       propertyPath: m_Name
       value: Test_Character
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 5efdb7869e15d294781921ab048b67e0, type: 3}
+      propertyPath: m_TagString
+      value: PlayerAttack
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5efdb7869e15d294781921ab048b67e0, type: 3}
