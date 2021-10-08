@@ -24,9 +24,9 @@ public class Playercontroller : MonoBehaviour
         runV = camPivot.transform.forward * Input.GetAxis("Vertical") + camPivot.transform.right * Input.GetAxis("Horizontal");
         runV.y = 0f;
         this.GetComponent<Rigidbody>().velocity = runV*speed;
-        if (Input.GetMouseButton(0))
+        if (Input.GetMouseButtonDown(0))
         {
-            anim.SetInteger("atk", (anim.GetInteger("atk") == 0 ? 1 : anim.GetInteger("atk") == 1 ? 2 : 0));
+           
             anim.SetTrigger("attack");
         }
         if (GetComponent<Rigidbody>().velocity.magnitude != 0)
