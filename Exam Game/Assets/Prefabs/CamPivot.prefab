@@ -127,6 +127,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4190c5c55a657014e849691a5f124577, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
+  player: {fileID: 8089358211249413491, guid: 03a24d58267dbd04d8f6e5fe5e16ab1d, type: 3}
   turn: {x: 0, y: 0}
   sensitivity: 2

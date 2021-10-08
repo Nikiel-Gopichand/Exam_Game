@@ -48,7 +48,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   anim: {fileID: 8089358212070645099}
   speed: 3
-  camPivot: {fileID: 0}
+  camPivot: {fileID: 6606568771806930632, guid: 680e801ba5d6872438417fc907acee38, type: 3}
   turn: {x: 0, y: 0}
   sensitivity: 2
 --- !u!54 &8089358211249413495
