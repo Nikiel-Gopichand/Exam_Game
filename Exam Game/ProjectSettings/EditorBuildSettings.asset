@@ -4,5 +4,8 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/Kushs test scene.unity
+    guid: a4eb5377bb4183d49be1c723f75ecdbc
   m_configObjects: {}
