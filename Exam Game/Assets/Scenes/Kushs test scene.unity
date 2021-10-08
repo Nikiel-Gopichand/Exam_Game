@@ -152,6 +152,7 @@ GameObject:
   m_Component:
   - component: {fileID: 121054639}
   - component: {fileID: 121054640}
+  - component: {fileID: 121054641}
   m_Layer: 0
   m_Name: Collider Body
   m_TagString: Untagged
@@ -186,6 +187,21 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1.7524363, z: 0.85110474}
   m_Center: {x: 0, y: 0.88086313, z: 0.07444763}
+--- !u!114 &121054641
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 121054638}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f2280470367ace409a8b297e75f135f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemy: {fileID: 1834530084}
+  damage: 10.84
+  player: {fileID: 2063913807}
 --- !u!1 &337154511
 GameObject:
   m_ObjectHideFlags: 0
@@ -393,6 +409,14 @@ PrefabInstance:
     - target: {fileID: 8089358211249413491, guid: 03a24d58267dbd04d8f6e5fe5e16ab1d, type: 3}
       propertyPath: m_Name
       value: Player (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8089358211249413491, guid: 03a24d58267dbd04d8f6e5fe5e16ab1d, type: 3}
+      propertyPath: m_TagString
+      value: PlayerAttack
+      objectReference: {fileID: 0}
+    - target: {fileID: 8971810092947137210, guid: 03a24d58267dbd04d8f6e5fe5e16ab1d, type: 3}
+      propertyPath: m_TagString
+      value: PlayerAttack
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 03a24d58267dbd04d8f6e5fe5e16ab1d, type: 3}
@@ -916,8 +940,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 183acce19cb5202439d1e51fe78f137b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rightArmCollider: {fileID: 337154513}
+  leftArmCollider: {fileID: 2111278955}
+  bodyCollider: {fileID: 121054640}
   sightRadius: 10
-  attackRange: 3
+  attackRange: 2
   enemyAnim: {fileID: 35456388}
   enemyHP: 100
   burnMultiplier: 1.2
@@ -948,11 +975,11 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.23
-  m_Speed: 2
+  m_Speed: 1.25
   m_Acceleration: 15
   avoidancePriority: 50
   m_AngularSpeed: 120
-  m_StoppingDistance: 1.5
+  m_StoppingDistance: 1.2
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1

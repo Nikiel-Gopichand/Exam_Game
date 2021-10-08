@@ -5,6 +5,11 @@ using UnityEngine.AI;
 
 public class EnemyController : MonoBehaviour
 {
+    public Collider rightArmCollider;
+    public Collider leftArmCollider;
+    public Collider bodyCollider;
+    public float damageThreshold=40; //the ammount of damage before an actual damage animation plays
+
     // Start is called before the first frame update
     public float sightRadius=10f;
     public float attackRange = 3f;
@@ -66,10 +71,27 @@ public class EnemyController : MonoBehaviour
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, sightRadius);
     }
-    void Damaged(float damage) {
-        enemyAnim.SetBool("Injured", true);
-        enemyHP = enemyHP - damage;
-    
+
+    public void Damaged(float damage)
+    {
+        if (damage >= damageThreshold)
+        {
+            enemyAnim.SetBool("Injured", true);
+            enemyHP = enemyHP - damage;
+            StartCoroutine("injuryImmunity");
+            //if the damage taken is above a certain ammount then only play animation for injured
+        }
+        else {
+            enemyHP = enemyHP - damage;
+        
+        }
+       
+    }
+    IEnumerator injuryImmunity() {
+
+        yield return new WaitForSeconds(1f);
+            enemyAnim.SetBool("Injured", false);
+        
     }
 
 
