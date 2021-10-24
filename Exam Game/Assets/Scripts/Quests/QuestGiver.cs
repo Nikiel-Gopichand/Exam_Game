@@ -14,6 +14,7 @@ public class QuestGiver : MonoBehaviour
     public Text descriptionText;
     public Text rewardText;
     public int interactRange=3;
+    public bool accepted;
 
 
     private void Start()
@@ -36,8 +37,8 @@ public class QuestGiver : MonoBehaviour
         descriptionText.text = quest.description;
         rewardText.text = quest.reward;
         playerScript.enabled = false;
-     //   PlayerTracker.instance.camera.SetActive() 
-//freeze camera on quest open
+        PlayerTracker.instance.camera.GetComponent<CamRot>().enabled = false;
+
 
 
 
@@ -48,7 +49,11 @@ public class QuestGiver : MonoBehaviour
         questWindow.SetActive(false);
         playerScript.enabled = true;
         //unfreeze camera on window quit
+        PlayerTracker.instance.camera.GetComponent<CamRot>().enabled = true;
 
+    }
+    public void acceptQuest() {
 
+        PlayerTracker.instance.camera.GetComponent<CamRot>().enabled = true;
     }
 }

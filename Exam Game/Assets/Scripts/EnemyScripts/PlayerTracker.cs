@@ -16,9 +16,12 @@ public class PlayerTracker : MonoBehaviour
     // Start is called before the first frame update
     public GameObject player;
     public GameObject camera;
+    private PlayerStats playerStats;
 
     private void Start()
     {
-        questCanvas.SetActive(false);
+        playerStats = player.GetComponent<PlayerStats>();
+        if (questCanvas!=null) { questCanvas.SetActive(false); }
+        
     }
 }
