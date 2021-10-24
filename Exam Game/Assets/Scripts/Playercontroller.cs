@@ -6,6 +6,7 @@ public class Playercontroller : MonoBehaviour
 {
     public Animator anim;
     public int speed = 3;
+    public int sps = 6;
     public GameObject camPivot;
     public Vector2 turn;
     public float sensitivity = 2f;
@@ -21,10 +22,10 @@ public class Playercontroller : MonoBehaviour
     void Update()
     {
         
-
+        
         runV = camPivot.transform.forward * Input.GetAxis("Vertical") + camPivot.transform.right * Input.GetAxis("Horizontal");
         runV.y = 0f;
-        this.GetComponent<Rigidbody>().velocity = runV*speed;
+        this.GetComponent<Rigidbody>().velocity = runV * (Input.GetKey(KeyCode.LeftShift) == true ? sps : speed) ;
         if (Input.GetMouseButtonDown(0))
         {
             sword.enabled = true;
