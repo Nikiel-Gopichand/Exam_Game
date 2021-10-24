@@ -9,4 +9,7 @@ public class QuestController
     public string title;
     public string description;
     public string reward;
+
+
+
 }
