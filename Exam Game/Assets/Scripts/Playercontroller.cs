@@ -25,7 +25,12 @@ public class Playercontroller : MonoBehaviour
         
         runV = camPivot.transform.forward * Input.GetAxis("Vertical") + camPivot.transform.right * Input.GetAxis("Horizontal");
         runV.y = 0f;
-        this.GetComponent<Rigidbody>().velocity = runV * (Input.GetKey(KeyCode.LeftShift) == true ? sps : speed) ;
+        if (sword.enabled == false)
+        {
+
+
+            this.GetComponent<Rigidbody>().velocity = runV * (Input.GetKey(KeyCode.LeftShift) == true ? sps : speed);
+        }
         if (Input.GetMouseButtonDown(0))
         {
             sword.enabled = true;
