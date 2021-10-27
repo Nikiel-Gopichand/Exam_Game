@@ -8,17 +8,17 @@ public class EnemyController : MonoBehaviour
     public Collider rightArmCollider;
     public Collider leftArmCollider;
     public Collider bodyCollider;
-    public float damageThreshold=40; //the ammount of damage before an actual damage animation plays
+    public float damageThreshold = 40; //the ammount of damage before an actual damage animation plays
 
     // Start is called before the first frame update
-    public float sightRadius=10f;
+    public float sightRadius = 10f;
     public float attackRange = 3f;
     Transform target;
     NavMeshAgent agent;
     public Animator enemyAnim;
-    public float enemyHP=100;
-    public float burnMultiplier=1.2f;
-    public float slowMultiplier=0.7f;
+    public float enemyHP = 100;
+    public float burnMultiplier = 1.2f;
+    public float slowMultiplier = 0.7f;
 
 
     void Start()
@@ -33,24 +33,24 @@ public class EnemyController : MonoBehaviour
         float distance = Vector3.Distance(target.position, transform.position);
         if (distance <= sightRadius)
         {
-            enemyAnim.SetBool("SightRange",true);
+            enemyAnim.SetBool("SightRange", true);
 
-          
-                FaceTarget();
-                if (distance <= attackRange)
-                {
-                    enemyAnim.SetInteger("AttackAnim", Random.Range(1, 2));
-                    enemyAnim.SetBool("Attacking", true);
 
-                }
-                else if(distance>attackRange)
+            FaceTarget();
+            if (distance <= attackRange)
+            {
+                enemyAnim.SetInteger("AttackAnim", Random.Range(1, 2));
+                enemyAnim.SetBool("Attacking", true);
+
+            }
+            else if (distance > attackRange)
             {
                 agent.SetDestination(target.position);
 
                 enemyAnim.SetBool("Attacking", false);
-                }
-          //  agent.SetDestination(target.position); 
-            
+            }
+            //  agent.SetDestination(target.position); 
+
 
 
         }
@@ -65,7 +65,7 @@ public class EnemyController : MonoBehaviour
     void FaceTarget() {
         Vector3 direction = (target.position - transform.position).normalized;
         Quaternion lookRotation = Quaternion.LookRotation(new Vector3(direction.x, 0, direction.z));
-    transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.deltaTime * 5f);
+        transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.deltaTime * 5f);
     }
     private void OnDrawGizmosSelected()
     {
@@ -84,16 +84,18 @@ public class EnemyController : MonoBehaviour
         }
         else {
             enemyHP = enemyHP - damage;
-        
+
         }
-       
+
     }
     IEnumerator injuryImmunity() {
 
         yield return new WaitForSeconds(1f);
-            enemyAnim.SetBool("Injured", false);
-        
+        enemyAnim.SetBool("Injured", false);
+
     }
 
+ 
+ 
 
 }
