@@ -15,10 +15,28 @@ public class QuestGiver : MonoBehaviour
     public Text rewardText;
     public int interactRange=3;
     public bool accepted;
+    public bool finishedQuest;
+    public Button turnInBtn;
+    public Text errorText;
+    public Button acceptBtn;
+    public GameObject[] enemyArray;
 
 
+    private void Awake()
+    {
+        if (accepted == true)
+        {
+
+            turnInBtn.enabled = true;
+            acceptBtn.enabled = false;
+        }
+        else { turnInBtn.enabled = false; }
+    }
     private void Start()
     {
+      
+        accepted = false;
+        finishedQuest = false;
         playerModel = PlayerTracker.instance.player.transform;
         playerScript = PlayerTracker.instance.player.GetComponent<Playercontroller>();
     }
@@ -29,9 +47,13 @@ public class QuestGiver : MonoBehaviour
             QuestWindowLaunch();
         
         }
+        if (accepted==true) {
+            progressTracker();
+        }
     }
     public void QuestWindowLaunch()
     {
+      
         questWindow.SetActive(true);
         titleText.text = quest.title;
         descriptionText.text = quest.description;
@@ -54,6 +76,51 @@ public class QuestGiver : MonoBehaviour
     }
     public void acceptQuest() {
 
+    
+        turnInBtn.enabled = true;
+        accepted = true;
+        playerScript.enabled = true;
         PlayerTracker.instance.camera.GetComponent<CamRot>().enabled = true;
+        acceptBtn.gameObject.SetActive(false);
+        questWindow.SetActive(false);
+
+      
+
+
     }
+
+    public void progressTracker() {
+        int enemCounter = 0 ;
+
+        for (int i=0;i<enemyArray.Length-1;i++) {
+            if (enemyArray[i]!=null) {
+                enemCounter++;
+            }
+        
+        }
+
+        if (enemCounter == 0)
+        {
+            finishedQuest = true;
+        }
+
+
+    }
+
+    public void TurnInQuest() {
+        if (finishedQuest == true)
+        {
+
+            questWindow.SetActive(false);
+            playerScript.enabled = true;
+            //unfreeze camera on window quit
+            PlayerTracker.instance.camera.GetComponent<CamRot>().enabled = true;
+        }
+        else {
+            errorText.text = "Complete quest objective before turning in.";
+        }
+       
+    }
+
+
 }
