@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerTracker : MonoBehaviour
 {
+    public GameObject questCanvas;
 
     #region Singleton
     public static PlayerTracker instance;
@@ -14,5 +15,13 @@ public class PlayerTracker : MonoBehaviour
     #endregion
     // Start is called before the first frame update
     public GameObject player;
+    public GameObject camera;
+    private PlayerStats playerStats;
 
+    private void Start()
+    {
+        playerStats = player.GetComponent<PlayerStats>();
+        if (questCanvas!=null) { questCanvas.SetActive(false); }
+        
+    }
 }
