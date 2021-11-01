@@ -11,13 +11,28 @@ public class Playercontroller : MonoBehaviour
     public Vector2 turn;
     public float sensitivity = 2f;
     public Collider sword;
+    public float stamina = 100;
     Vector3 runV;
     // Start is called before the first frame update
     void Start()
     {
         sword.enabled = false;
     }
-
+    IEnumerator stamCharge()
+    {
+        yield return new WaitForSeconds(1f);
+        if (stamina < 100)
+        {
+            stamina += 10;
+            StartCoroutine(stamCharge());
+        }
+        if (stamina >= 100)
+        {
+            stamina = 100;
+            yield return null;
+        }
+        
+    }
     // Update is called once per frame
     void Update()
     {
@@ -29,9 +44,17 @@ public class Playercontroller : MonoBehaviour
         {
 
 
-            this.GetComponent<Rigidbody>().velocity = runV * (Input.GetKey(KeyCode.LeftShift) == true ? sps : speed);
+            this.GetComponent<Rigidbody>().velocity = runV * (Input.GetKey(KeyCode.LeftShift) == true && stamina > 0 ? sps : speed);
         }
-        if (Input.GetMouseButtonDown(0))
+        if (GetComponent<Rigidbody>().velocity.magnitude > 0 && stamina > 0 && Input.GetKey(KeyCode.LeftShift))
+        {
+            stamina -= 5f * Time.deltaTime;
+        }
+        if (stamina <= 0)
+        {
+            StartCoroutine(stamCharge());
+        }
+        if (Input.GetMouseButtonDown(0) && sword.enabled != true)
         {
             sword.enabled = true;
             anim.SetInteger("atk", (anim.GetInteger("atk") == 0 ? 1 : anim.GetInteger("atk") == 1 ? 2 : 0));

@@ -48,10 +48,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   anim: {fileID: 8089358212070645099}
   speed: 3
+  sps: 6
   camPivot: {fileID: 0}
   turn: {x: 0, y: 0}
   sensitivity: 2
   sword: {fileID: 0}
+  stamina: 100
 --- !u!54 &8089358211249413495
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -168,6 +170,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Paladin_J_Nordstrom_Sword
       objectReference: {fileID: 0}
+    - target: {fileID: 6206449087615845176, guid: e11b3abb6000060498cd4f86d904475e, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e11b3abb6000060498cd4f86d904475e, type: 3}
 --- !u!1 &8559777736404656103 stripped
@@ -175,6 +181,80 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 6206449087615845176, guid: e11b3abb6000060498cd4f86d904475e, type: 3}
   m_PrefabInstance: {fileID: 2372214960866565343}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &977381911024549388 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3277379572178559699, guid: e11b3abb6000060498cd4f86d904475e, type: 3}
+  m_PrefabInstance: {fileID: 2372214960866565343}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &6111912075873203263
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 977381911024549388}
+    m_Modifications:
+    - target: {fileID: 6020095336558763476, guid: 0f2702f8e87ccdb42b67a6a76d7040df, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6020095336558763476, guid: 0f2702f8e87ccdb42b67a6a76d7040df, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.14974125
+      objectReference: {fileID: 0}
+    - target: {fileID: 6020095336558763476, guid: 0f2702f8e87ccdb42b67a6a76d7040df, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.19596
+      objectReference: {fileID: 0}
+    - target: {fileID: 6020095336558763476, guid: 0f2702f8e87ccdb42b67a6a76d7040df, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6020095336558763476, guid: 0f2702f8e87ccdb42b67a6a76d7040df, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.09
+      objectReference: {fileID: 0}
+    - target: {fileID: 6020095336558763476, guid: 0f2702f8e87ccdb42b67a6a76d7040df, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.016
+      objectReference: {fileID: 0}
+    - target: {fileID: 6020095336558763476, guid: 0f2702f8e87ccdb42b67a6a76d7040df, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.001
+      objectReference: {fileID: 0}
+    - target: {fileID: 6020095336558763476, guid: 0f2702f8e87ccdb42b67a6a76d7040df, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.71353567
+      objectReference: {fileID: 0}
+    - target: {fileID: 6020095336558763476, guid: 0f2702f8e87ccdb42b67a6a76d7040df, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.7006131
+      objectReference: {fileID: 0}
+    - target: {fileID: 6020095336558763476, guid: 0f2702f8e87ccdb42b67a6a76d7040df, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.0000021457668
+      objectReference: {fileID: 0}
+    - target: {fileID: 6020095336558763476, guid: 0f2702f8e87ccdb42b67a6a76d7040df, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.0028625124
+      objectReference: {fileID: 0}
+    - target: {fileID: 6020095336558763476, guid: 0f2702f8e87ccdb42b67a6a76d7040df, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 91.07199
+      objectReference: {fileID: 0}
+    - target: {fileID: 6020095336558763476, guid: 0f2702f8e87ccdb42b67a6a76d7040df, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -192.365
+      objectReference: {fileID: 0}
+    - target: {fileID: 6020095336558763476, guid: 0f2702f8e87ccdb42b67a6a76d7040df, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: -192.597
+      objectReference: {fileID: 0}
+    - target: {fileID: 6395248345218172782, guid: 0f2702f8e87ccdb42b67a6a76d7040df, type: 3}
+      propertyPath: m_Name
+      value: baphomet-sword
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 0f2702f8e87ccdb42b67a6a76d7040df, type: 3}
 --- !u!1001 &8089358212189249515
 PrefabInstance:
   m_ObjectHideFlags: 0
