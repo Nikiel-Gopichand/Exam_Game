@@ -24,12 +24,14 @@ public class Playercontroller : MonoBehaviour
         if (stamina < 100)
         {
             stamina += 10;
+            StartCoroutine(stamCharge());
         }
         if (stamina >= 100)
         {
             stamina = 100;
             yield return null;
         }
+        
     }
     // Update is called once per frame
     void Update()
@@ -46,11 +48,11 @@ public class Playercontroller : MonoBehaviour
         }
         if (GetComponent<Rigidbody>().velocity.magnitude > 0 && stamina > 0 && Input.GetKey(KeyCode.LeftShift))
         {
-            stamina -= 5 * Time.deltaTime;
+            stamina -= 5f * Time.deltaTime;
         }
-        if (Input.GetKeyUp(KeyCode.LeftShift))
+        if (stamina <= 0)
         {
-
+            StartCoroutine(stamCharge());
         }
         if (Input.GetMouseButtonDown(0))
         {
