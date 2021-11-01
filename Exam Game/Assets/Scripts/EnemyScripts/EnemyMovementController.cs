@@ -28,17 +28,24 @@ public class EnemyMovementController : MonoBehaviour
     public float enemyHP=100;
     public float damageThreshhold=39;
     public bool dying=false;
+  public  bool ranged = false;
+    public GameObject projectile;
+    public GameObject projectileSpawnPoint;
     // Start is called before the first frame update
 
     //damageColliders
     public Collider rightArmCollider;
     public Collider leftArmCollider;//for dealing damage
     public Collider bodyCollider;//taking damage
+
+
     void Awake()
     {
         player = playerTracker.GetComponent<PlayerTracker>().player.transform;
         enemy = GetComponent<NavMeshAgent>();
-        
+        if (projectile!=null) { projectile.SetActive(false); 
+        }
+      
     }
 
     // Update is called once per frame
@@ -112,11 +119,21 @@ public class EnemyMovementController : MonoBehaviour
 
 
         if (!alreadyAttacked) {
-
-            alreadyAttacked = true;
-            enemyAnim.SetInteger("AttackAnim", Random.Range(1, 3));
-            enemyAnim.SetBool("Attacking", true);
-            Invoke(nameof(ResetAttack), timeBetweenAttacks);
+            if (ranged == false)
+            {
+                alreadyAttacked = true;
+                enemyAnim.SetInteger("AttackAnim", Random.Range(1, 3));
+                enemyAnim.SetBool("Attacking", true);
+                Invoke(nameof(ResetAttack), timeBetweenAttacks);
+            } else if (ranged==true) {
+                
+                alreadyAttacked = true;
+                enemyAnim.SetInteger("AttackAnim", 1);
+                enemyAnim.SetBool("Attacking", true);
+            
+                Invoke(nameof(ResetAttack), timeBetweenAttacks);
+            }
+           
         }
     }
     public void ResetAttack() {
@@ -187,7 +204,12 @@ public class EnemyMovementController : MonoBehaviour
         Destroy(this.gameObject);
     }
 
+    private void FireProjectile() {
 
+        Rigidbody rb = Instantiate(projectile, projectileSpawnPoint.transform.position, Quaternion.identity).GetComponent<Rigidbody>();
+        rb.AddForce(transform.forward * 32f, ForceMode.Impulse);
+        rb.AddForce(transform.up * 8f, ForceMode.Impulse);
+    }
 
 
 
