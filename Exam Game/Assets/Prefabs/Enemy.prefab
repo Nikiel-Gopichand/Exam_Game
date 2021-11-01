@@ -459,6 +459,7 @@ GameObject:
   - component: {fileID: 2020687947526780376}
   - component: {fileID: 2020687947526780377}
   - component: {fileID: 2020687947526780378}
+  - component: {fileID: 951595453}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Untagged
@@ -519,7 +520,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 1
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 64
   m_CollisionDetection: 0
 --- !u!114 &2020687947526780378
 MonoBehaviour:
@@ -528,7 +529,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2020687947526780379}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 183acce19cb5202439d1e51fe78f137b, type: 3}
   m_Name: 
@@ -543,6 +544,41 @@ MonoBehaviour:
   enemyHP: 100
   burnMultiplier: 1.2
   slowMultiplier: 0.7
+--- !u!114 &951595453
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2020687947526780379}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 37892a60cea067a4f9864551d1e337d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerTracker: {fileID: 0}
+  enemy: {fileID: 2020687947526780376}
+  player: {fileID: 0}
+  whatIsGround:
+    serializedVersion: 2
+    m_Bits: 128
+  whatIsPlayer:
+    serializedVersion: 2
+    m_Bits: 64
+  walkPoint: {x: 0, y: 0, z: 0}
+  walkPointRange: 20
+  timeBetweenAttacks: 2
+  enemyAnim: {fileID: 2020687946104604027}
+  sightRange: 10
+  attackRange: 1
+  playerInSightRange: 0
+  playerInAttackRange: 0
+  enemyHP: 100
+  damageThreshhold: 39
+  dying: 0
+  rightArmCollider: {fileID: 4800806392666185057}
+  leftArmCollider: {fileID: 4800806391210427355}
+  bodyCollider: {fileID: 4800806392382712064}
 --- !u!1 &2252929176013686200
 GameObject:
   m_ObjectHideFlags: 0
@@ -998,8 +1034,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemy: {fileID: 2020687947526780379}
-  damage: 10.84
-  player: {fileID: 0}
 --- !u!1 &4800806392666185087
 GameObject:
   m_ObjectHideFlags: 0
