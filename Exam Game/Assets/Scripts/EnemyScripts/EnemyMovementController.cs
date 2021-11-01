@@ -31,6 +31,7 @@ public class EnemyMovementController : MonoBehaviour
   public  bool ranged = false;
     public GameObject projectile;
     public GameObject projectileSpawnPoint;
+    private bool damageable=true;
     // Start is called before the first frame update
 
     //damageColliders
@@ -160,11 +161,12 @@ public class EnemyMovementController : MonoBehaviour
     }
     public void TakeDamage(float damage) 
     {
-        if (damage >= damageThreshhold)
+        if (damage >= damageThreshhold && damageable==true)
         {
             enemyAnim.SetBool("Injured", true);
             enemyHP = enemyHP - damage;
-
+            damageable = false;
+            Invoke(nameof(resetDamageable), 1f);
             if (enemyHP <= 0)
             {
                 dying = true;
@@ -174,9 +176,11 @@ public class EnemyMovementController : MonoBehaviour
 
          
         }
-        else
+        else if(damage < damageThreshhold && damageable == true)
         {
             enemyHP = enemyHP - damage;
+            damageable = false;
+            Invoke(nameof(resetDamageable), 1f);
                  if (enemyHP <= 0)
              {
                 dying = true;
@@ -190,7 +194,7 @@ public class EnemyMovementController : MonoBehaviour
     IEnumerator injuryImmunity()
     {
 
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(2f);
         enemyAnim.SetBool("Injured", false);
 
     }
@@ -209,6 +213,11 @@ public class EnemyMovementController : MonoBehaviour
         Rigidbody rb = Instantiate(projectile, projectileSpawnPoint.transform.position, Quaternion.identity).GetComponent<Rigidbody>();
         rb.AddForce(transform.forward * 32f, ForceMode.Impulse);
         rb.AddForce(transform.up * 8f, ForceMode.Impulse);
+    }
+
+    void resetDamageable() {
+
+        damageable = true;
     }
 
 

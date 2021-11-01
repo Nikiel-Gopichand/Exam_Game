@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-[RequireComponent(typeof(Rigidbody))]
+
 public class Fireball : MonoBehaviour {
     public bool pushOnAwake = true;
     public Vector3 startDirection;
@@ -35,7 +35,7 @@ public class Fireball : MonoBehaviour {
 
     public void OnCollisionEnter(Collision col)
     {
-        rgbd.Sleep();
+       // rgbd.Sleep();
         if (fieryEffect != null)
         {
             StopParticleSystem(fieryEffect);

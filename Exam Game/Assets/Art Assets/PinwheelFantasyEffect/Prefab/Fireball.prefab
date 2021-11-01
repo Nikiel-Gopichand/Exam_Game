@@ -24234,7 +24234,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aba4f60f1c542ae44ab00737321e4aea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pushOnAwake: 1
+  pushOnAwake: 0
   startDirection: {x: 0, y: 0, z: 0}
   startMagnitude: 0
   forceMode: 0
