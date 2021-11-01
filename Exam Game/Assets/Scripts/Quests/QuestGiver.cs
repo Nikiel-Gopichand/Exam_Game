@@ -55,6 +55,7 @@ public class QuestGiver : MonoBehaviour
     {
       
         questWindow.SetActive(true);
+        Cursor.visible = true;
         titleText.text = quest.title;
         descriptionText.text = quest.description;
         rewardText.text = quest.reward;
@@ -68,11 +69,12 @@ public class QuestGiver : MonoBehaviour
     }
     public void QuitWindow()
     {
+        Cursor.visible = false;
         questWindow.SetActive(false);
         playerScript.enabled = true;
         //unfreeze camera on window quit
         PlayerTracker.instance.camera.GetComponent<CamRot>().enabled = true;
-
+      
     }
     public void acceptQuest() {
 
@@ -83,8 +85,8 @@ public class QuestGiver : MonoBehaviour
         PlayerTracker.instance.camera.GetComponent<CamRot>().enabled = true;
         acceptBtn.gameObject.SetActive(false);
         questWindow.SetActive(false);
+        Cursor.visible = false;
 
-      
 
 
     }
