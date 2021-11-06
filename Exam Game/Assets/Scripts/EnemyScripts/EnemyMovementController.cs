@@ -42,6 +42,12 @@ public class EnemyMovementController : MonoBehaviour
 
     void Awake()
     {
+        if (rightArmCollider!=null&&leftArmCollider!=null)
+        {
+             rightArmCollider.enabled = false;
+        leftArmCollider.enabled = false;
+        }
+       
         player = playerTracker.GetComponent<PlayerTracker>().player.transform;
         enemy = GetComponent<NavMeshAgent>();
         if (projectile!=null) { projectile.SetActive(false); 
@@ -84,6 +90,11 @@ public class EnemyMovementController : MonoBehaviour
     }
     private void Patroling()
     {
+        if (rightArmCollider != null && leftArmCollider != null)
+        {
+            rightArmCollider.enabled = false;
+            leftArmCollider.enabled = false;
+        }
         enemyAnim.SetBool("Patroling", true);
         if (!walkPointSet) SearchWalkPoint();
         if (walkPointSet) {
@@ -102,7 +113,11 @@ public class EnemyMovementController : MonoBehaviour
     }
     private void SearchWalkPoint()
     {
-
+        if (rightArmCollider != null && leftArmCollider != null)
+            {
+                rightArmCollider.enabled = false;
+                leftArmCollider.enabled = false;
+            }
         float randZ = Random.Range(-walkPointRange, walkPointRange);
         float randX = Random.Range(-walkPointRange, walkPointRange);
         walkPoint = new Vector3(transform.position.x + randX, transform.position.y, transform.position.z + randZ);
@@ -112,6 +127,7 @@ public class EnemyMovementController : MonoBehaviour
     }
     private void Attacking()
     {
+        
         enemyAnim.SetBool("SightRange", true);
         enemyAnim.SetBool("Patroling",false);
         enemy.SetDestination(transform.position);
@@ -126,6 +142,12 @@ public class EnemyMovementController : MonoBehaviour
                 alreadyAttacked = true;
                 enemyAnim.SetInteger("AttackAnim", Random.Range(1, 3));
                 enemyAnim.SetBool("Attacking", true);
+                if (rightArmCollider != null && leftArmCollider != null)
+                {
+rightArmCollider.enabled = true;
+                leftArmCollider.enabled = true;
+                }
+                
                 Invoke(nameof(ResetAttack), timeBetweenAttacks);
             } else if (ranged==true) {
                 
@@ -139,12 +161,23 @@ public class EnemyMovementController : MonoBehaviour
         }
     }
     public void ResetAttack() {
+       
+        if (rightArmCollider != null && leftArmCollider != null)
+        { rightArmCollider.enabled = false;
+        leftArmCollider.enabled = false;
+
+        }
         enemyAnim.SetBool("Attacking", false);
         alreadyAttacked = false;
      
     }
     private void Chasing()
     {
+        if (rightArmCollider != null && leftArmCollider != null)
+        {
+            rightArmCollider.enabled = false;
+            leftArmCollider.enabled = false;
+        }
         enemyAnim.SetBool("Attacking", false);
         enemyAnim.SetBool("SightRange", true);
         enemyAnim.SetBool("Patroling", false);
@@ -164,6 +197,11 @@ public class EnemyMovementController : MonoBehaviour
     {
         if (damage >= damageThreshhold && damageable==true)
         {
+            if (rightArmCollider != null && leftArmCollider != null)
+            {
+                rightArmCollider.enabled = false;
+                leftArmCollider.enabled = false;
+            }
             enemyAnim.SetBool("Injured", true);
             enemyHP = enemyHP - damage;
             damageable = false;

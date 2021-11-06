@@ -21,10 +21,9 @@ public class PlayerStats : MonoBehaviour
     public float freezeTime = 2f;//time above effect lasts
     public float IceShardRange = 5f;//range of attack
 
-    //wind abilities
     public float DamageMultiplier = 1.1f;
 
-    public float windSlashRange = 5f;//range of attack
+    
     // Start is called before the first frame update
     void Start()
     {
