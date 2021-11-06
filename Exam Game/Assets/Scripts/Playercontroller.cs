@@ -14,9 +14,13 @@ public class Playercontroller : MonoBehaviour
     public float stamina = 100;
     Vector3 runV;
     bool sprinting;
+    public PlayerStats Stats;
+    public bool damageable=true;
+    private Vector3 startPos;
     // Start is called before the first frame update
     void Start()
     {
+        startPos = transform.position;
         sprinting = false;
         sword.enabled = false;
     }
@@ -84,5 +88,25 @@ public class Playercontroller : MonoBehaviour
 
         yield return new WaitForSeconds(1);
         sword.enabled = false;
+    }
+    
+    private void OnTriggerEnter(Collider collision)
+    {
+        if (collision.gameObject.tag == "Damager" && damageable == true)
+        {
+            damageable = false;
+            Invoke(nameof(resetInvincible), 1f);
+            Stats.HP -= 20;
+            if (Stats.HP <= 0)
+            {
+                transform.position = startPos;
+                Stats.HP = 100;
+            }
+
+        }
+    }
+    void resetInvincible() {
+        damageable = true;
+
     }
 }

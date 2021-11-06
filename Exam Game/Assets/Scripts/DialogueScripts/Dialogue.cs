@@ -39,7 +39,7 @@ public class Dialogue : MonoBehaviour
             continueBtn.SetActive(true);
         }
         float distance = Vector3.Distance(playerModel.position, transform.position);
-        if (distance <= interactRange && Input.GetKeyDown(KeyCode.E))
+        if (distance <= interactRange && Input.GetKeyDown(KeyCode.E)&&opened==false)
         {           DialogueWindow.SetActive(false);
             DialogueWindowLaunch();
           
@@ -75,10 +75,12 @@ public class Dialogue : MonoBehaviour
             playerScript.enabled = true;
             Cursor.visible = false;
             interactText.enabled = true;
+            opened = false;
         }
 
     }
     public void DialogueWindowLaunch(){
+        opened = true;
         DialogueWindow.SetActive(true);
         PlayerTracker.instance.camera.GetComponent<CamRot>().enabled = false;
         playerScript.enabled = false;
