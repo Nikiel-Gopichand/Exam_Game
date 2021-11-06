@@ -13,46 +13,51 @@ public class Playercontroller : MonoBehaviour
     public Collider sword;
     public float stamina = 100;
     Vector3 runV;
+    bool sprinting;
     // Start is called before the first frame update
     void Start()
     {
+        sprinting = false;
         sword.enabled = false;
     }
-    IEnumerator stamCharge()
-    {
-        yield return new WaitForSeconds(1f);
-        if (stamina < 100)
-        {
-            stamina += 10;
-            StartCoroutine(stamCharge());
-        }
-        if (stamina >= 100)
-        {
-            stamina = 100;
-            yield return null;
-        }
-        
-    }
+  
     // Update is called once per frame
     void Update()
     {
-        
-        
+
+        if (Input.GetKeyDown(KeyCode.LeftShift))
+        {
+            sprinting = true;
+        }
+        if (Input.GetKeyUp(KeyCode.LeftShift))
+        {
+            sprinting = false;
+        }
+        if (stamina < 0)
+        {
+            stamina = 0;
+        }
+        if (stamina <= 0)
+        {
+            sprinting = false;
+        }
         runV = camPivot.transform.forward * Input.GetAxis("Vertical") + camPivot.transform.right * Input.GetAxis("Horizontal");
         runV.y = 0f;
         if (sword.enabled == false)
         {
-
-
-            this.GetComponent<Rigidbody>().velocity = runV * (Input.GetKey(KeyCode.LeftShift) == true && stamina > 0 ? sps : speed);
+            this.GetComponent<Rigidbody>().velocity = runV * (sprinting == true && stamina > 0 ? sps : speed);
         }
-        if (GetComponent<Rigidbody>().velocity.magnitude > 0 && stamina > 0 && Input.GetKey(KeyCode.LeftShift))
+        if (GetComponent<Rigidbody>().velocity.magnitude > 0 && stamina > 0 && sprinting == true)
         {
-            stamina -= 5f * Time.deltaTime;
+            stamina -= 10f * Time.deltaTime;
         }
-        if (stamina <= 0)
+        if (stamina < 100f && sprinting == false)
         {
-            StartCoroutine(stamCharge());
+            stamina += 10f * Time.deltaTime;
+        }
+        if (stamina > 100f)
+        {
+            stamina = 100f;
         }
         if (Input.GetMouseButtonDown(0) && sword.enabled != true)
         {
