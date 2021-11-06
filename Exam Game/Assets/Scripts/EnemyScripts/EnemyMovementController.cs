@@ -94,7 +94,8 @@ public class EnemyMovementController : MonoBehaviour
         if (distanceToWalkPoint.magnitude < 2f) {
            // walkPointSet = false;
             enemyAnim.SetBool("Patroling", false);
-            Invoke(nameof(IdleEnd), 3f);
+            walkPointSet = false;
+          //  Invoke(nameof(IdleEnd), 3f);
             
         
         }
@@ -157,7 +158,7 @@ public class EnemyMovementController : MonoBehaviour
     }
     private void IdleEnd() {
 
-        walkPointSet = false;
+      //  walkPointSet = false;
     }
     public void TakeDamage(float damage) 
     {

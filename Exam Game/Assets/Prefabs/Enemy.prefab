@@ -576,6 +576,9 @@ MonoBehaviour:
   enemyHP: 100
   damageThreshhold: 39
   dying: 0
+  ranged: 0
+  projectile: {fileID: 0}
+  projectileSpawnPoint: {fileID: 0}
   rightArmCollider: {fileID: 4800806392666185057}
   leftArmCollider: {fileID: 4800806391210427355}
   bodyCollider: {fileID: 4800806392382712064}

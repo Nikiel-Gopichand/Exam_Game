@@ -2,18 +2,22 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
 
 public class Dialogue : MonoBehaviour
 {
     public TextMeshProUGUI textDisplay;
     public string[] sentences;
-    private int index;
+    private int index = 0;
     public float typeSpeed = 0.02f;
     public int interactRange = 3;
     public GameObject continueBtn;
     public Playercontroller playerScript;
     public Transform playerModel;
     public GameObject DialogueWindow;
+    private bool opened = false;
+    private bool finishedLine = false;
+    public Text interactText;
     // Start is called before the first frame update
     void Start()
     {
@@ -26,19 +30,31 @@ public class Dialogue : MonoBehaviour
     void Update()
     {
         if (textDisplay.text == sentences[index]) {
+            if ( Input.GetKeyDown(KeyCode.Mouse0))
+            {
+
+                nextSentence();
+            }
+
             continueBtn.SetActive(true);
         }
         float distance = Vector3.Distance(playerModel.position, transform.position);
         if (distance <= interactRange && Input.GetKeyDown(KeyCode.E))
         {           DialogueWindow.SetActive(false);
             DialogueWindowLaunch();
+          
 
         }
+   
+
     }
     IEnumerator Type() {
+       
+      
         foreach (char letter in sentences[index].ToCharArray()) {
             textDisplay.text += letter;
             yield return new WaitForSeconds(typeSpeed);
+           
         }
 
     }
@@ -48,6 +64,7 @@ public class Dialogue : MonoBehaviour
         {
             index++;
             textDisplay.text = "";
+           
             StartCoroutine(Type());
 
         }
@@ -57,6 +74,7 @@ public class Dialogue : MonoBehaviour
             PlayerTracker.instance.camera.GetComponent<CamRot>().enabled = true;
             playerScript.enabled = true;
             Cursor.visible = false;
+            interactText.enabled = true;
         }
 
     }
@@ -65,9 +83,17 @@ public class Dialogue : MonoBehaviour
         PlayerTracker.instance.camera.GetComponent<CamRot>().enabled = false;
         playerScript.enabled = false;
         Cursor.visible = true;
-        
+        interactText.enabled = false;
+        nextSentence();
     }
-
+    private void OnTriggerEnter(Collider other)
+    {
+        interactText.enabled = true;
+    }
+    private void OnTriggerExit(Collider other)
+    {
+        interactText.enabled = false;
+    }
 
 
 }

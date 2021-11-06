@@ -13,17 +13,19 @@ public class QuestGiver : MonoBehaviour
     public Text titleText;
     public Text descriptionText;
     public Text rewardText;
-    public int interactRange=3;
+    public int interactRange=5;
     public bool accepted;
     public bool finishedQuest;
     public Button turnInBtn;
     public Text errorText;
     public Button acceptBtn;
     public GameObject[] enemyArray;
+    public Text interactText;
 
 
     private void Awake()
     {
+        interactText.enabled = false;
         if (accepted == true)
         {
 
@@ -40,16 +42,28 @@ public class QuestGiver : MonoBehaviour
         playerModel = PlayerTracker.instance.player.transform;
         playerScript = PlayerTracker.instance.player.GetComponent<Playercontroller>();
     }
-    private void FixedUpdate()
+
+    private void Update()
     {
         float distance = Vector3.Distance(playerModel.position, transform.position);
-        if (distance<=interactRange&& Input.GetKeyDown(KeyCode.E)) {
+
+
+
+        if (distance <= interactRange && Input.GetKeyDown(KeyCode.E))
+        {
             QuestWindowLaunch();
-        
+
         }
-        if (accepted==true) {
+        if (accepted == true)
+        {
             progressTracker();
         }
+       
+
+    }
+    private void FixedUpdate()
+    {
+       
     }
     public void QuestWindowLaunch()
     {
@@ -61,11 +75,11 @@ public class QuestGiver : MonoBehaviour
         rewardText.text = quest.reward;
         playerScript.enabled = false;
         PlayerTracker.instance.camera.GetComponent<CamRot>().enabled = false;
+        interactText.enabled = false;
 
 
 
 
-       
     }
     public void QuitWindow()
     {
@@ -74,7 +88,8 @@ public class QuestGiver : MonoBehaviour
         playerScript.enabled = true;
         //unfreeze camera on window quit
         PlayerTracker.instance.camera.GetComponent<CamRot>().enabled = true;
-      
+        interactText.enabled = true;
+
     }
     public void acceptQuest() {
 
@@ -86,7 +101,7 @@ public class QuestGiver : MonoBehaviour
         acceptBtn.gameObject.SetActive(false);
         questWindow.SetActive(false);
         Cursor.visible = false;
-
+        interactText.enabled = true;
 
 
     }
@@ -122,6 +137,15 @@ public class QuestGiver : MonoBehaviour
             errorText.text = "Complete quest objective before turning in.";
         }
        
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        interactText.enabled = true;
+    }
+    private void OnTriggerExit(Collider other)
+    {
+        interactText.enabled = false ;
     }
 
 
