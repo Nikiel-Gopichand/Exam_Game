@@ -66,9 +66,11 @@ public class Playercontroller : MonoBehaviour
         if (Input.GetMouseButtonDown(0) && sword.enabled != true)
         {
             sword.enabled = true;
-            anim.SetInteger("atk", (anim.GetInteger("atk") == 0 ? 1 : anim.GetInteger("atk") == 1 ? 2 : 0));
+           // anim.SetInteger("atk", (anim.GetInteger("atk") == 0 ? 1 : anim.GetInteger("atk") == 1 ? 2 : 0));
             anim.SetTrigger("attack");
+            anim.SetFloat("Running", 0);
             StartCoroutine("swordAttack");
+            
            
         }
         if (GetComponent<Rigidbody>().velocity.magnitude != 0)
@@ -86,9 +88,16 @@ public class Playercontroller : MonoBehaviour
 
     public IEnumerator swordAttack() {
 
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(1f);
         sword.enabled = false;
+        anim.SetInteger("atk", anim.GetInteger("atk") + 1);
+        if (anim.GetInteger("atk") >= 2)
+        {
+            anim.SetInteger("atk", 0);
+        }
+        
     }
+    
     
     private void OnTriggerEnter(Collider collision)
     {
