@@ -17,6 +17,9 @@ public class Playercontroller : MonoBehaviour
     public PlayerStats Stats;
     public bool damageable=true;
     private Vector3 startPos;
+    int clickCount = 0;
+    float addWait = 0f;
+    float addWait2 = 0f;
     // Start is called before the first frame update
     void Start()
     {
@@ -50,6 +53,18 @@ public class Playercontroller : MonoBehaviour
         if (sword.enabled == false)
         {
             this.GetComponent<Rigidbody>().velocity = runV * (sprinting == true && stamina > 0 ? sps : speed);
+            if (Input.GetAxis("Vertical") != 0 || Input.GetAxis("Horizontal") != 0)
+            {
+                anim.SetBool("isRunning", true);
+            }
+            if (Input.GetAxis("Vertical") == 0 && Input.GetAxis("Horizontal") == 0)
+            {
+                anim.SetBool("isRunning", false);
+            }
+        }
+        if (sword.enabled == true)
+        {
+            GetComponent<Rigidbody>().velocity = Vector3.zero;
         }
         if (GetComponent<Rigidbody>().velocity.magnitude > 0 && stamina > 0 && sprinting == true)
         {
@@ -63,16 +78,34 @@ public class Playercontroller : MonoBehaviour
         {
             stamina = 100f;
         }
+        if (sword.enabled == true && Input.GetMouseButtonDown(0))
+        {
+            if (clickCount == 2)
+            {
+                addWait2 = 0.5f;
+                anim.SetTrigger("attack3");
+                clickCount = 0;
+            }
+            if (clickCount == 1)
+            {
+                anim.SetTrigger("attack2");
+                clickCount = 2;
+                addWait = 0.5f;
+            }
+
+        }
         if (Input.GetMouseButtonDown(0) && sword.enabled != true)
         {
             sword.enabled = true;
            // anim.SetInteger("atk", (anim.GetInteger("atk") == 0 ? 1 : anim.GetInteger("atk") == 1 ? 2 : 0));
             anim.SetTrigger("attack");
+            clickCount = 1;
             anim.SetFloat("Running", 0);
             StartCoroutine("swordAttack");
             
            
         }
+        
         if (GetComponent<Rigidbody>().velocity.magnitude != 0)
         {
             anim.SetFloat("Running",1);
@@ -88,13 +121,17 @@ public class Playercontroller : MonoBehaviour
 
     public IEnumerator swordAttack() {
 
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(0.75f);
+        yield return new WaitForSeconds(addWait);
+        yield return new WaitForSeconds(addWait2);
         sword.enabled = false;
         anim.SetInteger("atk", anim.GetInteger("atk") + 1);
-        if (anim.GetInteger("atk") >= 2)
+        if (anim.GetInteger("atk") >= 3)
         {
             anim.SetInteger("atk", 0);
         }
+        addWait = 0f;
+        addWait2 = 0f;
         
     }
     
