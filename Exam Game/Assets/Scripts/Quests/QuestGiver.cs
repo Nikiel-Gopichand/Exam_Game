@@ -45,10 +45,10 @@ public class QuestGiver : MonoBehaviour
 
     private void Update()
     {
-        float distance = Vector3.Distance(playerModel.position, transform.position);
+       // float distance = Vector3.Distance(playerModel.position, transform.position);
 
 
-
+        /*
         if (distance <= interactRange && Input.GetKeyDown(KeyCode.E))
         {
             QuestWindowLaunch();
@@ -58,7 +58,7 @@ public class QuestGiver : MonoBehaviour
         {
             progressTracker();
         }
-       
+       */
 
     }
     private void FixedUpdate()
