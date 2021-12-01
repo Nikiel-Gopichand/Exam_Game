@@ -8,6 +8,7 @@ public class Playercontroller : MonoBehaviour
     public int speed = 3;
     public int sps = 6;
     public GameObject camPivot;
+    public GameObject lockRadius;
     public Vector2 turn;
     public float sensitivity = 2f;
     public Collider sword;
@@ -20,6 +21,7 @@ public class Playercontroller : MonoBehaviour
     int clickCount = 0;
     float addWait = 0f;
     float addWait2 = 0f;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -96,6 +98,10 @@ public class Playercontroller : MonoBehaviour
         }
         if (Input.GetMouseButtonDown(0) && sword.enabled != true)
         {
+            if (lockRadius.GetComponent<softLock>().lockk != null)
+            {
+                this.transform.forward = this.transform.position - lockRadius.GetComponent<softLock>().lockk.transform.position;
+            }
             sword.enabled = true;
            // anim.SetInteger("atk", (anim.GetInteger("atk") == 0 ? 1 : anim.GetInteger("atk") == 1 ? 2 : 0));
             anim.SetTrigger("attack");
@@ -110,7 +116,7 @@ public class Playercontroller : MonoBehaviour
         {
             anim.SetFloat("Running",1);
             Vector3 lDir = transform.position + runV;
-            this.transform.forward = Vector3.Lerp(transform.forward, runV, 40f * Time.deltaTime);
+            this.transform.forward = Vector3.Lerp(transform.forward, runV, 200f * Time.deltaTime);
            
         }
         if (GetComponent<Rigidbody>().velocity.magnitude == 0)
