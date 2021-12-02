@@ -24,6 +24,8 @@ public class Playercontroller : MonoBehaviour
     public GameObject abilityFirePoint;
     public GameObject fireball;
     public GameObject iceblast;
+    public bool fireUnlocked;
+    public bool iceUnlocked;
     // Start is called before the first frame update
     void Start()
     {
@@ -35,11 +37,11 @@ public class Playercontroller : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Alpha1))
+        if (Input.GetKeyDown(KeyCode.Alpha1) && fireUnlocked == true)
         {
             Instantiate(fireball,abilityFirePoint.transform.position, abilityFirePoint.transform.rotation , null);
         }
-        if (Input.GetKeyDown(KeyCode.Alpha2))
+        if (Input.GetKeyDown(KeyCode.Alpha2) && iceUnlocked == true)
         {
             Instantiate(iceblast, abilityFirePoint.transform.position, abilityFirePoint.transform.rotation, null);
         }
