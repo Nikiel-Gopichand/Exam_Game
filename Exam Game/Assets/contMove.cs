@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class contMove : MonoBehaviour
 {
+    public float liveTime=5;
     bool on;
     // Start is called before the first frame update
     void Start()
@@ -15,7 +16,7 @@ public class contMove : MonoBehaviour
     // Update is called once per frame
     public IEnumerator die()
     {
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(liveTime);
         GameObject.Destroy(this.gameObject);
     }
     public IEnumerator onon()

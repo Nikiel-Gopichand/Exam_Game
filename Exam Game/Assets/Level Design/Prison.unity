@@ -4913,6 +4913,14 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1976654366}
     - target: {fileID: 8089358211249413488, guid: 03a24d58267dbd04d8f6e5fe5e16ab1d, type: 3}
+      propertyPath: iceUnlocked
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8089358211249413488, guid: 03a24d58267dbd04d8f6e5fe5e16ab1d, type: 3}
+      propertyPath: fireUnlocked
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8089358211249413488, guid: 03a24d58267dbd04d8f6e5fe5e16ab1d, type: 3}
       propertyPath: abilityFirePoint
       value: 
       objectReference: {fileID: 796485013}
