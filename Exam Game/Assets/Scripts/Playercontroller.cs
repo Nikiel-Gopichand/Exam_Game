@@ -156,6 +156,7 @@ public class Playercontroller : MonoBehaviour
         if (collision.gameObject.tag == "Damager" && damageable == true)
         {
             damageable = false;
+            Stats.damaged = true;
             Invoke(nameof(resetInvincible), 3f);
             Stats.HP -= 20;
             if (Stats.HP <= 0)
@@ -168,6 +169,6 @@ public class Playercontroller : MonoBehaviour
     }
     void resetInvincible() {
         damageable = true;
-
+        Stats.damaged = false;
     }
 }
