@@ -567,7 +567,7 @@ MonoBehaviour:
     m_Bits: 64
   walkPoint: {x: 0, y: 0, z: 0}
   walkPointRange: 20
-  timeBetweenAttacks: 2
+  timeBetweenAttacks: 3
   enemyAnim: {fileID: 2020687946104604027}
   sightRange: 10
   attackRange: 1
@@ -933,8 +933,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.2224491, y: 0.39074373, z: 0.5199662}
-  m_Center: {x: -0.11122454, y: 0.08743906, z: -0.07772447}
+  m_Size: {x: 0.8829429, y: 0.21271944, z: 0.32569197}
+  m_Center: {x: 0.05852886, y: -0.0015730858, z: -0.0449566}
 --- !u!1 &4800806391279431601
 GameObject:
   m_ObjectHideFlags: 0
@@ -1061,13 +1061,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4800806392666185087}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0.007640695, y: -0.24065499, z: 0.024865517, w: 0.9702621}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 3123333414289996701}
   m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 1.535, y: -27.826, z: 2.556}
 --- !u!65 &4800806392666185057
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1079,8 +1079,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.93029, y: 0.5095115, z: 0.45107782}
-  m_Center: {x: 0.052615102, y: 0.046745893, z: -0.0044952086}
+  m_Size: {x: 0.627583, y: 0.25145066, z: 0.24541248}
+  m_Center: {x: -0.0987399, y: -0.02344188, z: -0.0070329807}
 --- !u!1 &5093334910878977850
 GameObject:
   m_ObjectHideFlags: 0

@@ -14,6 +14,8 @@ public class EnemyMovementController : MonoBehaviour
     public Vector3 walkPoint;
     bool walkPointSet;
     public float walkPointRange;
+    public float currentSpeed;
+    public float defaultSpeed;
 
     public float timeBetweenAttacks;
 
@@ -42,10 +44,12 @@ public class EnemyMovementController : MonoBehaviour
 
     void Awake()
     {
+        defaultSpeed = gameObject.GetComponent<NavMeshAgent>().speed;
         if (rightArmCollider!=null&&leftArmCollider!=null)
         {
-             rightArmCollider.enabled = false;
-        leftArmCollider.enabled = false;
+            rightArmCollider.GetComponent<BoxCollider>().enabled = false;
+            leftArmCollider.GetComponent<BoxCollider>().enabled = false;
+       
         }
        
         player = playerTracker.GetComponent<PlayerTracker>().player.transform;
@@ -83,7 +87,7 @@ public class EnemyMovementController : MonoBehaviour
         }
 
 
-
+        if (alreadyAttacked==true) { enemy.SetDestination(transform.position); }
 
 
         
@@ -92,8 +96,8 @@ public class EnemyMovementController : MonoBehaviour
     {
         if (rightArmCollider != null && leftArmCollider != null)
         {
-            rightArmCollider.enabled = false;
-            leftArmCollider.enabled = false;
+            rightArmCollider.GetComponent<BoxCollider>().enabled = false;
+            leftArmCollider.GetComponent<BoxCollider>().enabled = false;
         }
         enemyAnim.SetBool("Patroling", true);
         if (!walkPointSet) SearchWalkPoint();
@@ -115,9 +119,9 @@ public class EnemyMovementController : MonoBehaviour
     {
         if (rightArmCollider != null && leftArmCollider != null)
             {
-                rightArmCollider.enabled = false;
-                leftArmCollider.enabled = false;
-            }
+            rightArmCollider.GetComponent<BoxCollider>().enabled = false;
+            leftArmCollider.GetComponent<BoxCollider>().enabled = false;
+        }
         float randZ = Random.Range(-walkPointRange, walkPointRange);
         float randX = Random.Range(-walkPointRange, walkPointRange);
         walkPoint = new Vector3(transform.position.x + randX, transform.position.y, transform.position.z + randZ);
@@ -144,8 +148,8 @@ public class EnemyMovementController : MonoBehaviour
                 enemyAnim.SetBool("Attacking", true);
                 if (rightArmCollider != null && leftArmCollider != null)
                 {
-rightArmCollider.enabled = true;
-                leftArmCollider.enabled = true;
+                    rightArmCollider.GetComponent<BoxCollider>().enabled = true;
+                    leftArmCollider.GetComponent<BoxCollider>().enabled = true;
                 }
                 
                 Invoke(nameof(ResetAttack), timeBetweenAttacks);
@@ -163,8 +167,9 @@ rightArmCollider.enabled = true;
     public void ResetAttack() {
        
         if (rightArmCollider != null && leftArmCollider != null)
-        { rightArmCollider.enabled = false;
-        leftArmCollider.enabled = false;
+        {
+            rightArmCollider.GetComponent<BoxCollider>().enabled = false;
+            leftArmCollider.GetComponent<BoxCollider>().enabled = false;
 
         }
         enemyAnim.SetBool("Attacking", false);
@@ -175,8 +180,8 @@ rightArmCollider.enabled = true;
     {
         if (rightArmCollider != null && leftArmCollider != null)
         {
-            rightArmCollider.enabled = false;
-            leftArmCollider.enabled = false;
+            rightArmCollider.GetComponent<BoxCollider>().enabled = false;
+            leftArmCollider.GetComponent<BoxCollider>().enabled = false;
         }
         enemyAnim.SetBool("Attacking", false);
         enemyAnim.SetBool("SightRange", true);
@@ -199,8 +204,8 @@ rightArmCollider.enabled = true;
         {
             if (rightArmCollider != null && leftArmCollider != null)
             {
-                rightArmCollider.enabled = false;
-                leftArmCollider.enabled = false;
+                rightArmCollider.GetComponent<BoxCollider>().enabled = false;
+                leftArmCollider.GetComponent<BoxCollider>().enabled = false;
             }
             enemyAnim.SetBool("Injured", true);
             enemyHP = enemyHP - damage;
@@ -259,6 +264,15 @@ rightArmCollider.enabled = true;
         damageable = true;
     }
 
+    public void slowed(float slowPercent, float slowTime) { 
+        //slows speed by slowPercent. e.g 0.1 means slowed 10%
+    currentSpeed=slowPercent* gameObject.GetComponent<NavMeshAgent>().speed;
+        gameObject.GetComponent<NavMeshAgent>().speed=currentSpeed;
 
-
+        Invoke(nameof(resetPlayerSpeed),slowTime);
+    }
+    public void resetPlayerSpeed()
+    {
+         gameObject.GetComponent<NavMeshAgent>().speed=defaultSpeed;
+    }
 }

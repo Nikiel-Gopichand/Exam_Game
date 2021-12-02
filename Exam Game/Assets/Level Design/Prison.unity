@@ -3846,6 +3846,25 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: b2f96746c6005c64888263f64272a556, type: 3}
   m_PrefabInstance: {fileID: 545889115}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &551265134 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4800806392666185087, guid: f0606e941dbe74443b19815044e335fd, type: 3}
+  m_PrefabInstance: {fileID: 1542167685}
+  m_PrefabAsset: {fileID: 0}
+--- !u!64 &551265137
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 551265134}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 0
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 0}
 --- !u!1001 &551734555
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4956,6 +4975,10 @@ PrefabInstance:
       propertyPath: camPivot
       value: 
       objectReference: {fileID: 1679297508}
+    - target: {fileID: 8089358211249413488, guid: 03a24d58267dbd04d8f6e5fe5e16ab1d, type: 3}
+      propertyPath: lockRadius
+      value: 
+      objectReference: {fileID: 1976654366}
     - target: {fileID: 8089358211249413489, guid: 03a24d58267dbd04d8f6e5fe5e16ab1d, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -10292,6 +10315,25 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1235897658}
   m_CullTransparentMesh: 1
+--- !u!1 &1236625446 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4800806391210427353, guid: f0606e941dbe74443b19815044e335fd, type: 3}
+  m_PrefabInstance: {fileID: 1542167685}
+  m_PrefabAsset: {fileID: 0}
+--- !u!64 &1236625449
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1236625446}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 0
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 0}
 --- !u!1001 &1246417204
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11424,7 +11466,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2020687947526780374, guid: f0606e941dbe74443b19815044e335fd, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 45.333
+      value: 38.14
       objectReference: {fileID: 0}
     - target: {fileID: 2020687947526780374, guid: f0606e941dbe74443b19815044e335fd, type: 3}
       propertyPath: m_LocalPosition.y
@@ -11432,7 +11474,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2020687947526780374, guid: f0606e941dbe74443b19815044e335fd, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 18.982
+      value: 50.99
       objectReference: {fileID: 0}
     - target: {fileID: 2020687947526780374, guid: f0606e941dbe74443b19815044e335fd, type: 3}
       propertyPath: m_LocalRotation.w
@@ -12316,7 +12358,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2020687947526780374, guid: f0606e941dbe74443b19815044e335fd, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 50.791
+      value: 16.37
       objectReference: {fileID: 0}
     - target: {fileID: 2020687947526780374, guid: f0606e941dbe74443b19815044e335fd, type: 3}
       propertyPath: m_LocalRotation.w
@@ -12370,6 +12412,14 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Enemy
       objectReference: {fileID: 0}
+    - target: {fileID: 4800806391210427355, guid: f0606e941dbe74443b19815044e335fd, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4800806392666185057, guid: f0606e941dbe74443b19815044e335fd, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f0606e941dbe74443b19815044e335fd, type: 3}
 --- !u!1 &1545319692 stripped
@@ -12403,7 +12453,7 @@ GameObject:
   - component: {fileID: 1552472108}
   m_Layer: 0
   m_Name: GameManager
-  m_TagString: Untagged
+  m_TagString: GM
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -15230,6 +15280,11 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: 9947a6e7e8c8208469c1c86e15f5c089, type: 3}
   m_PrefabInstance: {fileID: 1976575025}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1976654366 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4863822242904739517, guid: 03a24d58267dbd04d8f6e5fe5e16ab1d, type: 3}
+  m_PrefabInstance: {fileID: 648095363}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1978071968
 GameObject:

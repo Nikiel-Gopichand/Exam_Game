@@ -8,6 +8,8 @@ TagManager:
   - PlayerAttack
   - Enemy
   - Ground
+  - GM
+  - swordAttack
   layers:
   - Default
   - TransparentFX
