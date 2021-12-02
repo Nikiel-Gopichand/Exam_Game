@@ -21,7 +21,9 @@ public class Playercontroller : MonoBehaviour
     int clickCount = 0;
     float addWait = 0f;
     float addWait2 = 0f;
-    
+    public GameObject abilityFirePoint;
+    public GameObject fireball;
+    public GameObject iceblast;
     // Start is called before the first frame update
     void Start()
     {
@@ -33,7 +35,14 @@ public class Playercontroller : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        if (Input.GetKeyDown(KeyCode.Alpha1))
+        {
+            Instantiate(fireball,abilityFirePoint.transform.position, abilityFirePoint.transform.rotation , null);
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha2))
+        {
+            Instantiate(iceblast, abilityFirePoint.transform.position, abilityFirePoint.transform.rotation, null);
+        }
         if (Input.GetKeyDown(KeyCode.LeftShift))
         {
             sprinting = true;
