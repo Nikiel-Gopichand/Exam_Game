@@ -44,10 +44,10 @@ public class EnemyDamageController : MonoBehaviour
             startTime = Time.time;
             dmg = ps.baseBurnDamage;
             dmgOverTime = dmg*ps.burnDamageMultiplier;
-            while (Time.time<startTime+ps.burnTime) {
+       //     while (Time.time<startTime+ps.burnTime) {
 
-                enemy.GetComponent<EnemyMovementController>().TakeDamage(dmgOverTime);
-            }
+            //    enemy.GetComponent<EnemyMovementController>().TakeDamage(dmgOverTime);
+         //   }
 
             enemy.GetComponent<EnemyMovementController>().TakeDamage(dmg);
         }

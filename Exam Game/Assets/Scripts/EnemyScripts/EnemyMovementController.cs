@@ -210,7 +210,7 @@ public class EnemyMovementController : MonoBehaviour
             enemyAnim.SetBool("Injured", true);
             enemyHP = enemyHP - damage;
             damageable = false;
-            Invoke(nameof(resetDamageable), 1f);
+            Invoke(nameof(resetDamageable), 0.5f);
             if (enemyHP <= 0)
             {
                 dying = true;
@@ -224,7 +224,7 @@ public class EnemyMovementController : MonoBehaviour
         {
             enemyHP = enemyHP - damage;
             damageable = false;
-            Invoke(nameof(resetDamageable), 1f);
+            Invoke(nameof(resetDamageable), 0.5f);
                  if (enemyHP <= 0)
              {
                 dying = true;
@@ -266,13 +266,15 @@ public class EnemyMovementController : MonoBehaviour
 
     public void slowed(float slowPercent, float slowTime) { 
         //slows speed by slowPercent. e.g 0.1 means slowed 10%
-    currentSpeed=slowPercent* gameObject.GetComponent<NavMeshAgent>().speed;
+    currentSpeed=(1-slowPercent)* gameObject.GetComponent<NavMeshAgent>().speed;
         gameObject.GetComponent<NavMeshAgent>().speed=currentSpeed;
-
+        StartCoroutine(resetPlayerSpeed());
         Invoke(nameof(resetPlayerSpeed),slowTime);
     }
-    public void resetPlayerSpeed()
+    public IEnumerator resetPlayerSpeed()
     {
+       
          gameObject.GetComponent<NavMeshAgent>().speed=defaultSpeed;
-    }
+        yield return new WaitForSeconds(3f);
+    } 
 }
