@@ -108,6 +108,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ab1d9029d9201846be3299ff0ce5f57, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lockk: {fileID: 0}
+  tempDist: 0
+  player: {fileID: 0}
 --- !u!1 &8089358211249413491
 GameObject:
   m_ObjectHideFlags: 0
@@ -159,6 +162,7 @@ MonoBehaviour:
   speed: 3
   sps: 6
   camPivot: {fileID: 0}
+  lockRadius: {fileID: 0}
   turn: {x: 0, y: 0}
   sensitivity: 2
   sword: {fileID: 0}
@@ -284,6 +288,10 @@ PrefabInstance:
     - target: {fileID: 6206449087615845176, guid: e11b3abb6000060498cd4f86d904475e, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6206449087615845176, guid: e11b3abb6000060498cd4f86d904475e, type: 3}
+      propertyPath: m_TagString
+      value: swordAttack
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e11b3abb6000060498cd4f86d904475e, type: 3}
@@ -423,7 +431,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 5efdb7869e15d294781921ab048b67e0, type: 3}
       propertyPath: m_TagString
-      value: PlayerAttack
+      value: Untagged
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5efdb7869e15d294781921ab048b67e0, type: 3}
