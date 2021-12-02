@@ -23,10 +23,12 @@ public class PlayerStats : MonoBehaviour
 
     public float DamageMultiplier = 1.1f;
 
-
+    public bool damaged;
+    bool regen;
     // Start is called before the first frame update
     void Start()
     {
+        regen = false;
         if (PlayerPrefs.HasKey("swordDamage")  )
         {
             if (PlayerPrefs.GetFloat("swordDamage") != 0f)
@@ -79,10 +81,33 @@ public class PlayerStats : MonoBehaviour
 
     }
 
+    public IEnumerator regenTimer()
+    {
+        if (regen == false)
+        {
+            yield return new WaitForSeconds(5f);
+            regen = true;
+            
+        }
+    }
     // Update is called once per frame
     void Update()
     {
-
+        if (regen == true && damaged == false)
+        {
+            HP += 5f * Time.deltaTime;
+        }
+        if (HP >= 100)
+        {
+            HP = 100;
+            regen = false;
+        }
+        if (damaged == true)
+        {
+            regen = false;
+            damaged = false;
+            StartCoroutine(regenTimer());
+        }
     }
    
 }

@@ -10,6 +10,8 @@ TagManager:
   - Ground
   - GM
   - swordAttack
+  - fireAttack
+  - iceAttack
   layers:
   - Default
   - TransparentFX
