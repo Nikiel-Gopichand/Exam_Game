@@ -10,6 +10,7 @@ public class EnemyDamageController : MonoBehaviour
     public PlayerStats ps;
     public float dmgOverTime;
     public float startTime;
+    
     // Start is called before the first frame update
     void Start()
     {

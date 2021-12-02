@@ -18,7 +18,7 @@ public class SwordController : MonoBehaviour
     private void OnCollisionEnter(Collision collision)
     {
         gameObject.SetActive(false);
-       Invoke(nameof(resetSword),1f);
+       Invoke(nameof(resetSword),0.5f);
        // if (collision.gameObject.tag=="Enemy") {
        //     collision.gameObject.GetComponent<EnemyMovementController>().TakeDamage(40f);
       //  }
