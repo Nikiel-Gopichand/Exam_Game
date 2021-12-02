@@ -17,6 +17,7 @@ public class GameManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
+            Cursor.visible = true;
             PlayerTracker.instance.camera.GetComponent<CamRot>().enabled = false;
             pauseUI.enabled = true;
             Time.timeScale = 0;
@@ -29,6 +30,7 @@ public class GameManager : MonoBehaviour
     public void unPause()
     {
         PlayerTracker.instance.camera.GetComponent<CamRot>().enabled = true;
+        Cursor.visible = false;
         pauseUI.enabled = false;
         Time.timeScale = 1;
 
