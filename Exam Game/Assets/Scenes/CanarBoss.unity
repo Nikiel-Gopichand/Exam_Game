@@ -755,7 +755,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f2280470367ace409a8b297e75f135f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 0}
   enemy: {fileID: 710383983}
+  dmg: 0
+  ps: {fileID: 0}
+  dmgOverTime: 0
+  startTime: 0
 --- !u!4 &65160375
 Transform:
   m_ObjectHideFlags: 0
@@ -826,7 +831,7 @@ GameObject:
   - component: {fileID: 68816907}
   m_Layer: 7
   m_Name: Terrain_(36.7, -0.1, 181.4)
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -1714,7 +1719,7 @@ GameObject:
   - component: {fileID: 101592010}
   m_Layer: 7
   m_Name: Terrain_(36.7, -0.1, 121.4) (1)
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -4063,7 +4068,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8559777736404656103, guid: 03a24d58267dbd04d8f6e5fe5e16ab1d, type: 3}
       propertyPath: m_TagString
-      value: PlayerAttack
+      value: swordAttack
       objectReference: {fileID: 0}
     - target: {fileID: 8598048927400090518, guid: 03a24d58267dbd04d8f6e5fe5e16ab1d, type: 3}
       propertyPath: m_Layer
@@ -4083,7 +4088,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8971810092947137210, guid: 03a24d58267dbd04d8f6e5fe5e16ab1d, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9005746018365935796, guid: 03a24d58267dbd04d8f6e5fe5e16ab1d, type: 3}
       propertyPath: m_Layer
@@ -4579,7 +4584,7 @@ GameObject:
   - component: {fileID: 252590144}
   m_Layer: 7
   m_Name: Terrain_(96.7, -0.1, 181.4)
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -6685,7 +6690,7 @@ GameObject:
   - component: {fileID: 311191736}
   m_Layer: 7
   m_Name: Terrain_(156.7, -0.1, 241.4)
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -10264,6 +10269,8 @@ MonoBehaviour:
     m_Bits: 64
   walkPoint: {x: 0, y: 0, z: 0}
   walkPointRange: 8
+  currentSpeed: 0
+  defaultSpeed: 0
   timeBetweenAttacks: 2
   enemyAnim: {fileID: 1113813442}
   sightRange: 15
@@ -17804,6 +17811,8 @@ MonoBehaviour:
     m_Bits: 64
   walkPoint: {x: 0, y: 0, z: 0}
   walkPointRange: 8
+  currentSpeed: 0
+  defaultSpeed: 0
   timeBetweenAttacks: 2
   enemyAnim: {fileID: 2143883616}
   sightRange: 15
@@ -18329,6 +18338,8 @@ MonoBehaviour:
     m_Bits: 64
   walkPoint: {x: 0, y: 0, z: 0}
   walkPointRange: 8
+  currentSpeed: 0
+  defaultSpeed: 0
   timeBetweenAttacks: 2
   enemyAnim: {fileID: 65160376}
   sightRange: 15
@@ -27239,7 +27250,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f2280470367ace409a8b297e75f135f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 0}
   enemy: {fileID: 1715186064}
+  dmg: 0
+  ps: {fileID: 0}
+  dmgOverTime: 0
+  startTime: 0
 --- !u!4 &910355232
 Transform:
   m_ObjectHideFlags: 0
@@ -28897,7 +28913,7 @@ GameObject:
   - component: {fileID: 1023669762}
   m_Layer: 7
   m_Name: Terrain_(156.7, -0.1, 121.4) (1)
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -29428,7 +29444,7 @@ GameObject:
   - component: {fileID: 1048133006}
   m_Layer: 7
   m_Name: Terrain_(156.7, -0.1, 181.4)
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -30786,7 +30802,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f2280470367ace409a8b297e75f135f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 0}
   enemy: {fileID: 506760462}
+  dmg: 0
+  ps: {fileID: 0}
+  dmgOverTime: 0
+  startTime: 0
 --- !u!4 &1113813441
 Transform:
   m_ObjectHideFlags: 0
@@ -38987,7 +39008,7 @@ GameObject:
   - component: {fileID: 1289694575}
   m_Layer: 7
   m_Name: Terrain_(36.7, -0.1, 241.4)
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -39807,7 +39828,7 @@ GameObject:
   - component: {fileID: 1329286734}
   m_Layer: 7
   m_Name: Terrain_(-23.3, -0.1, 241.4)
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -48052,7 +48073,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f2280470367ace409a8b297e75f135f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 0}
   enemy: {fileID: 1488158126}
+  dmg: 0
+  ps: {fileID: 0}
+  dmgOverTime: 0
+  startTime: 0
 --- !u!4 &1480695793
 Transform:
   m_ObjectHideFlags: 0
@@ -48163,6 +48189,8 @@ MonoBehaviour:
     m_Bits: 64
   walkPoint: {x: 0, y: 0, z: 0}
   walkPointRange: 8
+  currentSpeed: 0
+  defaultSpeed: 0
   timeBetweenAttacks: 2
   enemyAnim: {fileID: 1480695794}
   sightRange: 15
@@ -49610,7 +49638,7 @@ GameObject:
   - component: {fileID: 1570263286}
   m_Layer: 0
   m_Name: GameManager
-  m_TagString: Untagged
+  m_TagString: GM
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -50548,7 +50576,7 @@ GameObject:
   - component: {fileID: 1600603081}
   m_Layer: 7
   m_Name: Terrain_(-23.3, -0.1, 121.4) (1)
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -51949,7 +51977,7 @@ GameObject:
   - component: {fileID: 1682219619}
   m_Layer: 7
   m_Name: Terrain_(96.7, -0.1, 241.4)
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -52953,6 +52981,8 @@ MonoBehaviour:
     m_Bits: 64
   walkPoint: {x: 0, y: 0, z: 0}
   walkPointRange: 8
+  currentSpeed: 0
+  defaultSpeed: 0
   timeBetweenAttacks: 2
   enemyAnim: {fileID: 910355233}
   sightRange: 15
@@ -55545,7 +55575,7 @@ GameObject:
   - component: {fileID: 1870246498}
   m_Layer: 7
   m_Name: Terrain_(-23.3, -0.1, 181.4)
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -64162,6 +64192,8 @@ MonoBehaviour:
     m_Bits: 64
   walkPoint: {x: 0, y: 0, z: 0}
   walkPointRange: 68.6
+  currentSpeed: 0
+  defaultSpeed: 0
   timeBetweenAttacks: 2
   enemyAnim: {fileID: 1086884243}
   sightRange: 15.42
@@ -64468,7 +64500,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f2280470367ace409a8b297e75f135f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 0}
   enemy: {fileID: 679627973}
+  dmg: 0
+  ps: {fileID: 0}
+  dmgOverTime: 0
+  startTime: 0
 --- !u!4 &2143883615
 Transform:
   m_ObjectHideFlags: 0
