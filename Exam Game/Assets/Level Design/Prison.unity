@@ -4474,16 +4474,16 @@ Transform:
   - {fileID: 1193783466}
   - {fileID: 2098847030}
   - {fileID: 1626834092}
-  - {fileID: 391870215}
   - {fileID: 687115061}
+  - {fileID: 391870215}
+  - {fileID: 1652535012}
   - {fileID: 889150011}
   - {fileID: 814519331}
-  - {fileID: 1652535012}
-  - {fileID: 1762452455}
-  - {fileID: 1101129247}
   - {fileID: 1556862766}
+  - {fileID: 1762452455}
   - {fileID: 160938956}
   - {fileID: 2041028725}
+  - {fileID: 1101129247}
   - {fileID: 1509332589}
   - {fileID: 843590368}
   - {fileID: 545889116}
@@ -4897,9 +4897,21 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1679297508}
     - target: {fileID: 8089358211249413488, guid: 03a24d58267dbd04d8f6e5fe5e16ab1d, type: 3}
+      propertyPath: fireball
+      value: 
+      objectReference: {fileID: 100004, guid: 6836f5eaa96f845c4ac0909f84272556, type: 3}
+    - target: {fileID: 8089358211249413488, guid: 03a24d58267dbd04d8f6e5fe5e16ab1d, type: 3}
+      propertyPath: iceblast
+      value: 
+      objectReference: {fileID: 1920325297268671343, guid: 889dd67908ff48640a817f0b0074814e, type: 3}
+    - target: {fileID: 8089358211249413488, guid: 03a24d58267dbd04d8f6e5fe5e16ab1d, type: 3}
       propertyPath: lockRadius
       value: 
       objectReference: {fileID: 1976654366}
+    - target: {fileID: 8089358211249413488, guid: 03a24d58267dbd04d8f6e5fe5e16ab1d, type: 3}
+      propertyPath: abilityFirePoint
+      value: 
+      objectReference: {fileID: 796485013}
     - target: {fileID: 8089358211249413489, guid: 03a24d58267dbd04d8f6e5fe5e16ab1d, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -5058,6 +5070,7 @@ MonoBehaviour:
   freezeTime: 2
   IceShardRange: 5
   DamageMultiplier: 1.1
+  damaged: 0
 --- !u!114 &648095369
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6340,6 +6353,11 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: 91d652779ec7140488b6b8e360497937, type: 3}
   m_PrefabInstance: {fileID: 794512452}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &796485013 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2083585378746531719, guid: 03a24d58267dbd04d8f6e5fe5e16ab1d, type: 3}
+  m_PrefabInstance: {fileID: 648095363}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &804498900 stripped
 GameObject:
