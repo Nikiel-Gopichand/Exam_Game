@@ -19,14 +19,16 @@ public class CanarController : MonoBehaviour
     public bool dying = false;
     public float currentSpeed;
     public float defaultSpeed;
+    public bool incendo = false;
     public int stateMachine; // 0= idle; 1=chasing; 2=attack1;3=attack2;4=attack3;5=death;
     public bool enteredArena;
     public Dialogue dlg;
     public string playerprefName;
+    
     // Start is called before the first frame update
     void Start()
     {
-        dlg.enabled = false;
+      //  dlg.enabled = false;
         defaultSpeed = gameObject.GetComponent<NavMeshAgent>().speed;
         target = PlayerTracker.instance.player.transform;
         agent = GetComponent<NavMeshAgent>();
@@ -39,14 +41,14 @@ public class CanarController : MonoBehaviour
     {
         float distance = Vector3.Distance(target.position, transform.position);
 
-        if (distance<sightRadius+5 &&enteredArena==false ){
+        if (distance<=sightRadius+5 &&enteredArena==false ){
             agent.SetDestination(transform.position);
-            if (enteredArena == false)
-            {
-                enteredArena = true;
+           
+              
                 dlg.enabled = true;
                 dlg.DialogueWindowLaunch();
-            }
+                enteredArena = true;
+           
 
 
         }
@@ -61,7 +63,12 @@ public class CanarController : MonoBehaviour
             if (distance <= attackRange &&attacked == false)
             {
                 agent.SetDestination(transform.position);
-                enemyAnim.SetInteger("AnimState", Random.Range(2, 4));
+                if (incendo==true) { 
+                    enemyAnim.SetInteger("AnimState", Random.Range(2, 5)); 
+                } 
+                else { enemyAnim.SetInteger("AnimState", Random.Range(2, 4)); 
+                }
+              
                 attacked = true;
                 StartCoroutine(resetAttack());
 
