@@ -144,7 +144,7 @@ MonoBehaviour:
   img: {fileID: 1666215702}
   objective: {fileID: 189471391}
   metreRange: {fileID: 1931438433}
-  offset: {x: 0, y: 2, z: 0}
+  offset: {x: 0, y: 5, z: 0}
 --- !u!114 &46760
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2472,6 +2472,7 @@ MonoBehaviour:
   textDisplay: {fileID: 605660180}
   sentences:
   - 
+  - 
   - 'CANAR: Ahhhh! The Seer has found himself another champion!'
   - "NARA: Another\u2026?"
   - 'CANAR: Ha! Did you think you were the first!? No, no, no! Dozens! ... Hundreds!
@@ -2518,7 +2519,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.3217369, y: 2.454187, z: 1.3463789}
+  m_Size: {x: 1.81, y: 2.71, z: 1.8}
   m_Center: {x: 0.043938976, y: 0.72709334, z: 0.17318946}
 --- !u!195 &189471388
 NavMeshAgent:

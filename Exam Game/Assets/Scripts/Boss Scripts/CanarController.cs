@@ -13,7 +13,7 @@ public class CanarController : MonoBehaviour
     NavMeshAgent agent;
     public Animator enemyAnim;
     bool attacked = false;
-    public float enemyHP = 500;
+    public float enemyHP = 500f;
     public float damageThreshold = 40;
     public bool damageable=true;
     public bool dying = false;
