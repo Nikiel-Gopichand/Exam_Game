@@ -18,6 +18,7 @@ public class Dialogue : MonoBehaviour
     private bool opened = false;
     private bool finishedLine = false;
     public Text interactText;
+    public bool interactable = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -29,7 +30,7 @@ public class Dialogue : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (textDisplay.text == sentences[index]) {
+      if (textDisplay.text == sentences[index]) {
             if ( Input.GetKeyDown(KeyCode.Mouse0))
             {
 
@@ -38,14 +39,17 @@ public class Dialogue : MonoBehaviour
 
             continueBtn.SetActive(true);
         }
-        float distance = Vector3.Distance(playerModel.position, transform.position);
-        if (distance <= interactRange && Input.GetKeyDown(KeyCode.E)&&opened==false)
-        {           DialogueWindow.SetActive(false);
-            DialogueWindowLaunch();
-          
+        if (interactable==true) {
+            float distance = Vector3.Distance(playerModel.position, transform.position);
+            if (distance <= interactRange && Input.GetKeyDown(KeyCode.E) && opened == false)
+            {
+                DialogueWindow.SetActive(false);
+                DialogueWindowLaunch();
 
+
+            }
         }
-   
+     
 
     }
     IEnumerator Type() {
@@ -69,6 +73,8 @@ public class Dialogue : MonoBehaviour
 
         }
         else { textDisplay.text = "";
+
+           
             continueBtn.SetActive(false);
             DialogueWindow.SetActive(false);
             PlayerTracker.instance.camera.GetComponent<CamRot>().enabled = true;
@@ -80,6 +86,7 @@ public class Dialogue : MonoBehaviour
 
     }
     public void DialogueWindowLaunch(){
+       
         opened = true;
         DialogueWindow.SetActive(true);
         PlayerTracker.instance.camera.GetComponent<CamRot>().enabled = false;
