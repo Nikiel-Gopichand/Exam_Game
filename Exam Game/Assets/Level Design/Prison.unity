@@ -1935,7 +1935,7 @@ MonoBehaviour:
   playerScript: {fileID: 648095372}
   playerModel: {fileID: 648095375}
   interactRange: 5
-  sceneNumber: 2
+  sceneNumber: 3
   interactText: {fileID: 1312546381}
 --- !u!65 &250274701
 BoxCollider:
@@ -11185,7 +11185,7 @@ Animator:
   m_GameObject: {fileID: 1331238973}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 8c3e87bfe06fcde4298ffd6a0d114cd3, type: 2}
+  m_Controller: {fileID: 9100000, guid: bb7aab3c24cfa9f4b967197ab4ae52eb, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
