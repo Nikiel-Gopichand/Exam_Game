@@ -1309,7 +1309,9 @@ MonoBehaviour:
   playerModel: {fileID: 648095375}
   DialogueWindow: {fileID: 1995435647}
   interactText: {fileID: 1312546381}
-  interactable: 1
+  interactable: 0
+  launchOnStart: 1
+  activateOnEnd: {fileID: 0}
 --- !u!1 &154422614
 GameObject:
   m_ObjectHideFlags: 0
@@ -5048,11 +5050,11 @@ PrefabInstance:
       objectReference: {fileID: 1976654366}
     - target: {fileID: 8089358211249413488, guid: 03a24d58267dbd04d8f6e5fe5e16ab1d, type: 3}
       propertyPath: iceUnlocked
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8089358211249413488, guid: 03a24d58267dbd04d8f6e5fe5e16ab1d, type: 3}
       propertyPath: fireUnlocked
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8089358211249413488, guid: 03a24d58267dbd04d8f6e5fe5e16ab1d, type: 3}
       propertyPath: abilityFirePoint
@@ -10892,7 +10894,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1312546380
 RectTransform:
   m_ObjectHideFlags: 0
@@ -12085,8 +12087,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 103.00952, y: -367}
-  m_SizeDelta: {x: 2166.8237, y: 346}
+  m_AnchoredPosition: {x: 103.00952, y: -381.1223}
+  m_SizeDelta: {x: 2166.8237, y: 374.2446}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1517826425
 MonoBehaviour:
@@ -12375,6 +12377,7 @@ GameObject:
   - component: {fileID: 1552472109}
   - component: {fileID: 1552472107}
   - component: {fileID: 1552472108}
+  - component: {fileID: 1552472110}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: GM
@@ -12404,13 +12407,14 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1552472106}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f5c2300ef6c179a42a6be4e20f45224e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   pauseUI: {fileID: 615153227}
   quest1Active: 0
+  pc: {fileID: 0}
 --- !u!4 &1552472109
 Transform:
   m_ObjectHideFlags: 0
@@ -12425,6 +12429,21 @@ Transform:
   m_Father: {fileID: 814944188}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1552472110
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1552472106}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c12fc44773a4b6458839db1cde6aae4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pauseUI: {fileID: 615153227}
+  quest1Active: 0
+  pc: {fileID: 648095372}
 --- !u!1 &1553645692 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 100000, guid: 91d652779ec7140488b6b8e360497937, type: 3}
@@ -12662,6 +12681,8 @@ MonoBehaviour:
   DialogueWindow: {fileID: 0}
   interactText: {fileID: 0}
   interactable: 0
+  launchOnStart: 0
+  activateOnEnd: {fileID: 0}
 --- !u!1 &1624680356
 GameObject:
   m_ObjectHideFlags: 0

@@ -2,24 +2,42 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GameManager : MonoBehaviour
+public class TownGM: MonoBehaviour
 {
     public Canvas pauseUI;
     public bool quest1Active;
     public Playercontroller pc;
+    public WaypointController wc;
+    public GameObject seer1, seer2, seer3;// seers 3 dialogues
+
+ 
+
+
     // Start is called before the first frame update
     void Start()
     {
+        seer1.SetActive(false); seer2.SetActive(false); seer3.SetActive(false);
+        
         pauseUI.enabled = false;
-        if (PlayerPrefs.GetInt("CanarDefeated")==1)
+        
+        if (PlayerPrefs.GetInt("CanarDefeated") == 1)
         {
             pc.iceUnlocked = true;
 
         }
-        if (PlayerPrefs.GetInt("IncendoDefeated")==1) 
+        else { pc.iceUnlocked = false; }
+        if (PlayerPrefs.GetInt("IncendoDefeated") == 1)
         {
             pc.fireUnlocked = true;
         }
+        else { pc.fireUnlocked = false; }
+
+
+        if (PlayerPrefs.GetInt("CanarDefeated") == 1) {
+            seer2.SetActive(true);
+        } else if (PlayerPrefs.GetInt("CanarDefeated") == 1 && PlayerPrefs.GetInt("IncendoDefeated") == 1) {
+            seer3.SetActive(true);
+        } else if (PlayerPrefs.GetInt("CanarDefeated") != 1 && PlayerPrefs.GetInt("IncendoDefeated") != 1) { seer1.SetActive(true); }
 
     }
 

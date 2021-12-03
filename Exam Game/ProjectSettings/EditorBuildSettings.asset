@@ -26,4 +26,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Level Design/Town.unity
     guid: f147faee0e2726947baacee585f33596
+  - enabled: 1
+    path: Assets/Level Design/Icelands.unity
+    guid: 15a58f94b381b6246a6b50a8ddb9a60a
+  - enabled: 1
+    path: Assets/Level Design/Firelands.unity
+    guid: ec74e7b43f77c01439aa851c64ec25e2
   m_configObjects: {}
