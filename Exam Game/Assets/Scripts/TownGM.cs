@@ -16,7 +16,11 @@ public class TownGM: MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        seer1.SetActive(false); seer2.SetActive(false); seer3.SetActive(false);
+        if (seer1 != null && seer2 != null && seer3 != null) {
+
+            seer1.SetActive(false); seer2.SetActive(false); seer3.SetActive(false);
+        }
+      
         
         pauseUI.enabled = false;
         
