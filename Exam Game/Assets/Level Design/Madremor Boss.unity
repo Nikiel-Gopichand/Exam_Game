@@ -789,7 +789,7 @@ PrefabInstance:
     - target: {fileID: 8089358211249413488, guid: 03a24d58267dbd04d8f6e5fe5e16ab1d, type: 3}
       propertyPath: camPivot
       value: 
-      objectReference: {fileID: 109299479}
+      objectReference: {fileID: 2096967286}
     - target: {fileID: 8089358211249413488, guid: 03a24d58267dbd04d8f6e5fe5e16ab1d, type: 3}
       propertyPath: fireball
       value: 
