@@ -2434,6 +2434,7 @@ MonoBehaviour:
   DialogueWindow: {fileID: 1112054776}
   interactText: {fileID: 1348390567}
   interactable: 0
+  launchOnStart: 0
   activateOnEnd: {fileID: 0}
 --- !u!65 &189471387
 BoxCollider:
@@ -2500,7 +2501,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 63c44b0939a6f2643aff89d07d4ce595, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cutsceneNumber: 0
+  cutsceneNumber: 2
   sightRadius: 30
   attackRange: 20
   enemyAnim: {fileID: 559183690}
@@ -2510,6 +2511,7 @@ MonoBehaviour:
   dying: 0
   currentSpeed: 0
   defaultSpeed: 0
+  incendo: 0
   stateMachine: 0
   enteredArena: 0
   dlg: {fileID: 189471386}
@@ -2973,6 +2975,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pauseUI: {fileID: 925603858}
   quest1Active: 0
+  pc: {fileID: 11126908}
 --- !u!4 &283213547
 Transform:
   m_ObjectHideFlags: 0

@@ -697,7 +697,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8089358211249413488, guid: 03a24d58267dbd04d8f6e5fe5e16ab1d, type: 3}
       propertyPath: fireUnlocked
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8089358211249413488, guid: 03a24d58267dbd04d8f6e5fe5e16ab1d, type: 3}
       propertyPath: abilityFirePoint
@@ -713,7 +713,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8089358211249413489, guid: 03a24d58267dbd04d8f6e5fe5e16ab1d, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 14.439
+      value: 14.743
       objectReference: {fileID: 0}
     - target: {fileID: 8089358211249413489, guid: 03a24d58267dbd04d8f6e5fe5e16ab1d, type: 3}
       propertyPath: m_LocalPosition.z
@@ -28571,6 +28571,7 @@ MonoBehaviour:
   DialogueWindow: {fileID: 532153631}
   interactText: {fileID: 142506568}
   interactable: 0
+  launchOnStart: 0
   activateOnEnd: {fileID: 0}
 --- !u!65 &464251793
 BoxCollider:
@@ -46169,6 +46170,7 @@ MonoBehaviour:
   DialogueWindow: {fileID: 532153631}
   interactText: {fileID: 142506568}
   interactable: 0
+  launchOnStart: 0
   activateOnEnd: {fileID: 0}
 --- !u!65 &784686153
 BoxCollider:
@@ -46235,7 +46237,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 63c44b0939a6f2643aff89d07d4ce595, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cutsceneNumber: 0
+  cutsceneNumber: 2
   sightRadius: 30
   attackRange: 20
   enemyAnim: {fileID: 130788802}
@@ -91685,6 +91687,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pauseUI: {fileID: 1646338980}
   quest1Active: 0
+  pc: {fileID: 0}
 --- !u!4 &2065880734
 Transform:
   m_ObjectHideFlags: 0
