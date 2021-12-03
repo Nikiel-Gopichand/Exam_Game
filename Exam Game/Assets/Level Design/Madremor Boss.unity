@@ -12506,7 +12506,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 63c44b0939a6f2643aff89d07d4ce595, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cutsceneNumber: 0
+  cutsceneNumber: 9
   sightRadius: 30
   attackRange: 20
   enemyAnim: {fileID: 1756183150}
