@@ -621,7 +621,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 361519372}
   m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 117.767, y: 1.087, z: 114.993}
+  m_LocalPosition: {x: 117.634, y: 1.217, z: 114.769}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -2490,6 +2490,7 @@ MonoBehaviour:
   freezeTime: 2
   IceShardRange: 5
   DamageMultiplier: 1.1
+  damaged: 0
 --- !u!1 &1871722218
 GameObject:
   m_ObjectHideFlags: 0
@@ -2863,6 +2864,8 @@ GameObject:
   m_Component:
   - component: {fileID: 2079531585}
   - component: {fileID: 2079531584}
+  - component: {fileID: 2079531587}
+  - component: {fileID: 2079531586}
   m_Layer: 0
   m_Name: CM vcam1
   m_TagString: Untagged
@@ -2913,13 +2916,55 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2079531583}
   m_LocalRotation: {x: -0.0070170043, y: 0.7677546, z: 0.008409168, w: 0.64065045}
-  m_LocalPosition: {x: 115.767, y: 1.087, z: 114.493}
+  m_LocalPosition: {x: 115.634, y: 1.217, z: 114.269}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 666528431}
   m_Father: {fileID: 0}
   m_RootOrder: 31
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2079531586
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2079531583}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e501d18bb52cf8c40b1853ca4904654f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_CollideAgainst:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IgnoreTag: 
+  m_TransparentLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_MinimumDistanceFromTarget: 0.1
+  m_AvoidObstacles: 1
+  m_DistanceLimit: 0
+  m_MinimumOcclusionTime: 0
+  m_CameraRadius: 0.1
+  m_Strategy: 1
+  m_MaximumEffort: 4
+  m_SmoothingTime: 0
+  m_Damping: 0
+  m_DampingWhenOccluded: 0
+  m_OptimalTargetDistance: 0
+--- !u!114 &2079531587
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2079531583}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 729aad4491e915a41bda2b8325cf757a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!65 &2091889188 stripped
 BoxCollider:
   m_CorrespondingSourceObject: {fileID: 354446837771641308, guid: 03a24d58267dbd04d8f6e5fe5e16ab1d, type: 3}
@@ -3272,6 +3317,18 @@ PrefabInstance:
     - target: {fileID: 3582403703019522227, guid: 981b923846b45af429766f7ac3835426, type: 3}
       propertyPath: m_Name
       value: CamPivotCM
+      objectReference: {fileID: 0}
+    - target: {fileID: 3582403704352515987, guid: 981b923846b45af429766f7ac3835426, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.5478604
+      objectReference: {fileID: 0}
+    - target: {fileID: 3582403704352515987, guid: 981b923846b45af429766f7ac3835426, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.847
+      objectReference: {fileID: 0}
+    - target: {fileID: 3582403704352515987, guid: 981b923846b45af429766f7ac3835426, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 1.7041652
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 981b923846b45af429766f7ac3835426, type: 3}
