@@ -24,6 +24,7 @@ public class CanarController : MonoBehaviour
     public bool enteredArena;
     public Dialogue dlg;
     public string playerprefName;
+    public bool madremor = false;
     
     // Start is called before the first frame update
     void Start()
@@ -63,10 +64,15 @@ public class CanarController : MonoBehaviour
             if (distance <= attackRange &&attacked == false)
             {
                 agent.SetDestination(transform.position);
-                if (incendo==true) { 
-                    enemyAnim.SetInteger("AnimState", Random.Range(2, 5)); 
-                } 
-                else { enemyAnim.SetInteger("AnimState", Random.Range(2, 4)); 
+                if (incendo == true) {
+                    enemyAnim.SetInteger("AnimState", Random.Range(2, 5));
+                } else if (madremor==true) 
+                { int temp= Random.Range(2, 8);
+                    if (temp == 5) 
+                    { temp++; enemyAnim.SetInteger("AnimState", temp); } 
+                    else { enemyAnim.SetInteger("AnimState", temp); }  
+                }
+                else { enemyAnim.SetInteger("AnimState", Random.Range(2, 4));
                 }
               
                 attacked = true;
@@ -110,9 +116,9 @@ public class CanarController : MonoBehaviour
     {
         if (damage >= damageThreshold)
         {
-            enemyAnim.SetBool("Injured", true);
+            
             enemyHP = enemyHP - damage;
-            StartCoroutine("injuryImmunity");
+            
             //if the damage taken is above a certain ammount then only play animation for injured
         }
         else
@@ -126,7 +132,7 @@ public class CanarController : MonoBehaviour
     {
 
         yield return new WaitForSeconds(1f);
-        enemyAnim.SetBool("Injured", false);
+       
 
     }
     IEnumerator resetAttack() {
