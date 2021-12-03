@@ -19,6 +19,7 @@ public class Dialogue : MonoBehaviour
     private bool finishedLine = false;
     public Text interactText;
     public bool interactable = false;
+    public bool launchOnStart = false;
     public GameObject activateOnEnd;
     // Start is called before the first frame update
     void Start()
@@ -26,11 +27,18 @@ public class Dialogue : MonoBehaviour
         DialogueWindow.SetActive(false);
         playerModel = PlayerTracker.instance.player.transform;
         playerScript = PlayerTracker.instance.player.GetComponent<Playercontroller>();
+        if (launchOnStart == true)
+        {
+            DialogueWindow.SetActive(false);
+            DialogueWindowLaunch();
+
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (interactable==false&& interactText!=null) { interactText.enabled = false; }
       if (textDisplay.text == sentences[index]) {
             if ( Input.GetKeyDown(KeyCode.Mouse0))
             {
@@ -40,7 +48,7 @@ public class Dialogue : MonoBehaviour
 
             continueBtn.SetActive(true);
         }
-        if (interactable==true) {
+        if (interactable==true&&launchOnStart==false) {
             float distance = Vector3.Distance(playerModel.position, transform.position);
             if (distance <= interactRange && Input.GetKeyDown(KeyCode.E) && opened == false)
             {
@@ -50,7 +58,7 @@ public class Dialogue : MonoBehaviour
 
             }
         }
-     
+       
 
     }
     IEnumerator Type() {
