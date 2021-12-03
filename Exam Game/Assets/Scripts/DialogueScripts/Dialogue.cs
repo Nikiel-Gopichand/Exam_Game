@@ -19,6 +19,7 @@ public class Dialogue : MonoBehaviour
     private bool finishedLine = false;
     public Text interactText;
     public bool interactable = false;
+    public GameObject activateOnEnd;
     // Start is called before the first frame update
     void Start()
     {
@@ -74,7 +75,7 @@ public class Dialogue : MonoBehaviour
         }
         else { textDisplay.text = "";
 
-           
+            if (activateOnEnd!=null) { activateOnEnd.SetActive(true); }
             continueBtn.SetActive(false);
             DialogueWindow.SetActive(false);
             PlayerTracker.instance.camera.GetComponent<CamRot>().enabled = true;
@@ -86,9 +87,11 @@ public class Dialogue : MonoBehaviour
 
     }
     public void DialogueWindowLaunch(){
+        DialogueWindow.SetActive(true);
        
         opened = true;
-        DialogueWindow.SetActive(true);
+        
+       
         PlayerTracker.instance.camera.GetComponent<CamRot>().enabled = false;
         playerScript.enabled = false;
         Cursor.visible = true;

@@ -18,6 +18,9 @@ EditorBuildSettings:
     path: Assets/Scenes/CanarBoss.unity
     guid: 65d6e00c90588e64ab068cdd97d86307
   - enabled: 1
+    path: Assets/Scenes/CutsceneIntro.unity
+    guid: 822a96015556a2a418f93515478782a4
+  - enabled: 1
     path: Assets/Level Design/Prison.unity
     guid: a178860c6dcd7d74297915f5dc2ef959
   - enabled: 1

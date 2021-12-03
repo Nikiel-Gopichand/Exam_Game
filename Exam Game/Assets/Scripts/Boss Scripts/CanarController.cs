@@ -23,10 +23,11 @@ public class CanarController : MonoBehaviour
     public bool enteredArena;
     public Dialogue dlg;
     public string playerprefName;
+    
     // Start is called before the first frame update
     void Start()
     {
-        dlg.enabled = false;
+      //  dlg.enabled = false;
         defaultSpeed = gameObject.GetComponent<NavMeshAgent>().speed;
         target = PlayerTracker.instance.player.transform;
         agent = GetComponent<NavMeshAgent>();
@@ -39,14 +40,14 @@ public class CanarController : MonoBehaviour
     {
         float distance = Vector3.Distance(target.position, transform.position);
 
-        if (distance<sightRadius+5 &&enteredArena==false ){
+        if (distance<=sightRadius+5 &&enteredArena==false ){
             agent.SetDestination(transform.position);
-            if (enteredArena == false)
-            {
-                enteredArena = true;
+           
+              
                 dlg.enabled = true;
                 dlg.DialogueWindowLaunch();
-            }
+                enteredArena = true;
+           
 
 
         }
