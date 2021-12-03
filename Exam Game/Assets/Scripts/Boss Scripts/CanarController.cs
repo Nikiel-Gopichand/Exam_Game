@@ -19,6 +19,7 @@ public class CanarController : MonoBehaviour
     public bool dying = false;
     public float currentSpeed;
     public float defaultSpeed;
+    public bool incendo = false;
     public int stateMachine; // 0= idle; 1=chasing; 2=attack1;3=attack2;4=attack3;5=death;
     public bool enteredArena;
     public Dialogue dlg;
@@ -62,7 +63,12 @@ public class CanarController : MonoBehaviour
             if (distance <= attackRange &&attacked == false)
             {
                 agent.SetDestination(transform.position);
-                enemyAnim.SetInteger("AnimState", Random.Range(2, 4));
+                if (incendo==true) { 
+                    enemyAnim.SetInteger("AnimState", Random.Range(2, 5)); 
+                } 
+                else { enemyAnim.SetInteger("AnimState", Random.Range(2, 4)); 
+                }
+              
                 attacked = true;
                 StartCoroutine(resetAttack());
 
