@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GameManager : MonoBehaviour
+public class PrisonGM: MonoBehaviour
 {
     public Canvas pauseUI;
     public bool quest1Active;
@@ -11,16 +11,18 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         pauseUI.enabled = false;
-        if (PlayerPrefs.GetInt("CanarDefeated")==1)
+        PlayerPrefs.DeleteAll();
+        if (PlayerPrefs.GetInt("CanarDefeated") == 1)
         {
             pc.iceUnlocked = true;
 
         }
-        if (PlayerPrefs.GetInt("IncendoDefeated")==1) 
+        else { pc.iceUnlocked = false; }
+        if (PlayerPrefs.GetInt("IncendoDefeated") == 1)
         {
             pc.fireUnlocked = true;
         }
-
+        else { pc.fireUnlocked = false; }
     }
 
     // Update is called once per frame

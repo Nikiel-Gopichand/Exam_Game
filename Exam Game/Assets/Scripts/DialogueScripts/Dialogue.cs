@@ -38,7 +38,7 @@ public class Dialogue : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (interactable==false&& interactText!=null) { interactText.enabled = false; }
+      //  if (interactable==false&& interactText!=null) { interactText.enabled = false; }
       if (textDisplay.text == sentences[index]) {
             if ( Input.GetKeyDown(KeyCode.Mouse0))
             {
