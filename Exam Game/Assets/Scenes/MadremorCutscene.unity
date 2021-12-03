@@ -522,7 +522,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   anim: {fileID: 561673424}
-  sceneNum: 0
+  sceneNum: 10
 --- !u!4 &1049749959
 Transform:
   m_ObjectHideFlags: 0

@@ -406,8 +406,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 37.75482, y: -22.657349}
-  m_SizeDelta: {x: 160, y: 30}
+  m_AnchoredPosition: {x: 19.775, y: -83.5404}
+  m_SizeDelta: {x: 1959.5557, y: 1247.0347}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1475601866
 MonoBehaviour:
@@ -431,18 +431,48 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 14
+    m_FontSize: 45
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 10
-    m_MaxSize: 40
-    m_Alignment: 0
+    m_MinSize: 3
+    m_MaxSize: 50
+    m_Alignment: 1
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: New Text
+  m_Text: '3LE Low Poly Cloud Pack - https://assetstore.unity.com/packages/p/3le-low-poly-cloud-pack-65911
+
+    Ancient
+    Ruins in the desert -  https://assetstore.unity.com/packages/p/ancient-ruins-in-the-desert-part1-19175
+
+    Baphomet
+    Sword - https://assetstore.unity.com/packages/p/baphomet-sword-181106
+
+    Decrepit
+    Dungeons (Free Pack) - https://assetstore.unity.com/packages/p/decrepit-dungeon-lite-33936
+
+    FREE
+    Medieval Structure Kit - https://assetstore.unity.com/packages/p/free-medieval-structure-kit-141700
+
+    Fantasy
+    Forest Environment - Free Demo - https://assetstore.unity.com/packages/p/fantasy-forest-environment-free-demo-35361
+
+    KY
+    Magic Effects Free - https://assetstore.unity.com/packages/p/ky-magic-effects-free-21927
+
+    Magic
+    VFX - Ice (FREE) - https://assetstore.unity.com/packages/vfx/particles/spells/magic-vfx-ice-free-170242
+
+    Mega
+    Fantasy Props Pack - https://assetstore.unity.com/packages/3d/environments/fantasy/mega-fantasy-props-pack-87811
+
+    Old
+    Hand Torch - https://assetstore.unity.com/packages/p/old-hand-torch-156928
+
+    Mixamo
+    assets - https://www.mixamo.com/#/?page=1&type=Character'
 --- !u!222 &1475601867
 CanvasRenderer:
   m_ObjectHideFlags: 0
