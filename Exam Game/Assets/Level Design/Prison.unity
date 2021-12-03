@@ -1935,7 +1935,7 @@ MonoBehaviour:
   playerScript: {fileID: 648095372}
   playerModel: {fileID: 648095375}
   interactRange: 5
-  sceneNumber: 2
+  sceneNumber: 3
   interactText: {fileID: 1312546381}
 --- !u!65 &250274701
 BoxCollider:

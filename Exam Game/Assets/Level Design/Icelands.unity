@@ -2572,7 +2572,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 63c44b0939a6f2643aff89d07d4ce595, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cutsceneNumber: 2
+  cutsceneNumber: 5
   sightRadius: 30
   attackRange: 20
   enemyAnim: {fileID: 559183690}
@@ -2587,6 +2587,7 @@ MonoBehaviour:
   enteredArena: 0
   dlg: {fileID: 189471386}
   playerprefName: CanarDefeated
+  madremor: 0
 --- !u!4 &189471391
 Transform:
   m_ObjectHideFlags: 0

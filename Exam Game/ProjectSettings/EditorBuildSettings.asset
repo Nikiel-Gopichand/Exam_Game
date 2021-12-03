@@ -21,6 +21,9 @@ EditorBuildSettings:
     path: Assets/Scenes/CutsceneIntro.unity
     guid: 822a96015556a2a418f93515478782a4
   - enabled: 1
+    path: Assets/Scenes/OpeningSequenceScene.unity
+    guid: a1fe174ec2ae7884ba1e54f6cc92d4da
+  - enabled: 1
     path: Assets/Level Design/Prison.unity
     guid: a178860c6dcd7d74297915f5dc2ef959
   - enabled: 1
@@ -30,6 +33,15 @@ EditorBuildSettings:
     path: Assets/Level Design/Icelands.unity
     guid: 15a58f94b381b6246a6b50a8ddb9a60a
   - enabled: 1
+    path: Assets/Scenes/CanarCutscene.unity
+    guid: dd8eddcf569a6f343a606e60e3de63e3
+  - enabled: 1
     path: Assets/Level Design/Firelands.unity
     guid: ec74e7b43f77c01439aa851c64ec25e2
+  - enabled: 1
+    path: Assets/Scenes/IncendoCutscene.unity
+    guid: 54055455dbdcb0445ad7a83192a5ef72
+  - enabled: 1
+    path: Assets/Scenes/MadremorCutscene.unity
+    guid: 63562011d16c7c74b9395a8366ccc837
   m_configObjects: {}
